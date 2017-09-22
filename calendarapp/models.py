@@ -11,7 +11,7 @@ class StudentGroup(models.Model):
     email = models.CharField(max_length=30)
     description = models.CharField(max_length=500)
     photo = models.CharField(max_length=500)
-    # password =
+    password = models.CharField(max_length=500, default="Undefined")
 
 
 class Event(models.Model):
@@ -23,7 +23,7 @@ class Event(models.Model):
     owner = models.ForeignKey(StudentGroup, on_delete=models.CASCADE, default=None)
 
 
-class Course(models.Model):
+class Degree(models.Model):
     acro = models.CharField(max_length=30)
     photo = models.CharField(max_length=500)
     name = models.CharField(max_length=500)
@@ -35,4 +35,4 @@ class Evaluation(models.Model):
     start = models.DateTimeField()
     end = models.DateTimeField()
     place = models.CharField(max_length=30, default="Undefined")
-    owner = models.ForeignKey(Course, on_delete=models.CASCADE, default=None)
+    owner = models.ForeignKey(Degree, on_delete=models.CASCADE, default=None)
