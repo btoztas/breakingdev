@@ -127,3 +127,4 @@ tests/report/
 .idea
 
 istudentcalendar/__pycache__/*
+.DS_Store
