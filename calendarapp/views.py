@@ -11,4 +11,14 @@ from django.http import HttpResponse
 class HomePageView(TemplateView):
     template_name = 'calendarapp/index.html'
 
+class LoginPageView(TemplateView):
+    template_name = 'calendarapp/login.html'
+
+class RegisterPageView(TemplateView):
+    template_name = 'calendarapp/register.html'
+
+class ForgotPasswordPageView(TemplateView):
+    template_name = 'calendarapp/forgot-password.html'
+
+
 

@@ -1,3 +1,4 @@
+{% load staticfiles %}
 <!DOCTYPE html>
 <html lang="en">
 
@@ -8,12 +9,14 @@
   <meta name="description" content="">
   <meta name="author" content="">
   <title>SB Admin - Start Bootstrap Template</title>
+    {% block css %}
   <!-- Bootstrap core CSS-->
-  <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="{% static 'calendarapp/vendor/bootstrap/css/bootstrap.min.css'%}" rel="stylesheet">
   <!-- Custom fonts for this template-->
-  <link href="vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+  <link href="{% static 'calendarapp/vendor/font-awesome/css/font-awesome.min.css'%}" rel="stylesheet" type="text/css">
   <!-- Custom styles for this template-->
-  <link href="css/sb-admin.css" rel="stylesheet">
+  <link href="{% static 'calendarapp/css/sb-admin.css'%}" rel="stylesheet">
+    {% endblock %}
 </head>
 
 <body class="bg-dark">
@@ -46,11 +49,13 @@
     </div>
   </div>
   <!-- Bootstrap core JavaScript-->
-  <script src="vendor/jquery/jquery.min.js"></script>
-  <script src="vendor/popper/popper.min.js"></script>
-  <script src="vendor/bootstrap/js/bootstrap.min.js"></script>
+  {% block js %}
+  <script src="{% static 'calendarapp/vendor/jquery/jquery.min.js'%}"></script>
+  <script src="{% static 'calendarapp/vendor/popper/popper.min.js'%}"></script>
+  <script src="{% static 'calendarapp/vendor/bootstrap/js/bootstrap.min.js'%}"></script>
   <!-- Core plugin JavaScript-->
-  <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+  <script src="{% static 'calendarapp/vendor/jquery-easing/jquery.easing.min.js'%}"></script>
+  {% endblock %}
 </body>
 
 </html>
