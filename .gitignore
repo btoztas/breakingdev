@@ -124,5 +124,6 @@ tests/coverage_html/
 tests/.coverage
 build/
 tests/report/
+.idea
 
 istudentcalendar/__pycache__/*
