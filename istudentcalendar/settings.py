@@ -38,6 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'calendarapp.apps.CalendarappConfig',
+    'bootstrap3'
 ]
 
 MIDDLEWARE = [
@@ -51,6 +52,8 @@ MIDDLEWARE = [
 ]
 
 ROOT_URLCONF = 'istudentcalendar.urls'
+
+
 
 TEMPLATES = [
     {
@@ -119,4 +122,7 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/1.11/howto/static-files/
 
 STATIC_URL = '/static/'
-STATIC_ROOT = 'static'
+#STATIC_ROOT = 'static'
+STATICFILES_DIRS = (
+  os.path.join(BASE_DIR, 'static/'),
+)

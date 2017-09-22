@@ -126,3 +126,4 @@ build/
 tests/report/
 
 istudentcalendar/__pycache__/*
+.DS_Store
