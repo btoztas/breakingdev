@@ -19,3 +19,20 @@ class Event(models.Model):
     start = models.DateTimeField()
     end = models.DateTimeField()
     description = models.CharField(max_length=500)
+    place = models.CharField(max_length=30, default="Undefined")
+    owner = models.ForeignKey(StudentGroup, on_delete=models.CASCADE, default=None)
+
+
+class Course(models.Model):
+    name = models.CharField(max_length=30)
+    photo = models.CharField(max_length=500)
+    description = models.CharField(max_length=500)
+
+
+class Evaluation(models.Model):
+    name = models.CharField(max_length=30)
+    description = models.CharField(max_length=500)
+    start = models.DateTimeField()
+    end = models.DateTimeField()
+    place = models.CharField(max_length=30, default="Undefined")
+    owner = models.ForeignKey(StudentGroup, on_delete=models.CASCADE, default=None)
