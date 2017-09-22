@@ -11,7 +11,7 @@ class StudentGroup(models.Model):
     email = models.CharField(max_length=30)
     description = models.CharField(max_length=500)
     photo = models.CharField(max_length=500)
-    # password =
+    password = models.CharField(max_length=500, default="Undefined")
 
 
 class Event(models.Model):
