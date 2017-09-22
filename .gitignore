@@ -126,4 +126,7 @@ build/
 tests/report/
 .idea
 
+db.sqlite3
+
 istudentcalendar/__pycache__/*
+.DS_Store
