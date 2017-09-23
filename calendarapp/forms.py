@@ -9,7 +9,7 @@ class RegisterUserForm(forms.ModelForm):
 
     class Meta:
         model = StudentGroup
-        fields = ['username', 'name', 'email', 'password']
+        fields = ['username', 'name', 'email', 'password', 'acro']
 
 
 class RegisterEventForm(forms.ModelForm):
