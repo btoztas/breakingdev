@@ -35,3 +35,10 @@ class EditEventForm(forms.ModelForm):
     class Meta:
         model = Event
         fields = ['time_start', 'time_end', 'date_start', 'date_end', 'title', 'description', 'event_id']
+
+
+class EditProfileForm(forms.ModelForm):
+
+    class Meta:
+        model = StudentGroup
+        fields = ['name', 'email', 'description']
