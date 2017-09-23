@@ -1,2 +1,4 @@
 django==1.9.12
 django-bootstrap3
+django-scheduler
+django-bower
