@@ -78,6 +78,10 @@ class ProfilePageView(TemplateView):
     template_name = 'calendarapp/profile.html'
 
 
+class EventView(TemplateView):
+    template_name = 'calendarapp/event.html'
+
+
 @method_decorator(login_required(login_url='/calendarapp/login/'), name='dispatch')
 class CreateEventView(View):
     template_name = 'calendarapp/createEvent.html'
