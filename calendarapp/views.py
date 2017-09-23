@@ -12,7 +12,8 @@ from django.views.generic.base import TemplateView, View
 from django.http import HttpResponse
 from schedule.models import Calendar, Event
 
-from .forms import RegisterUserForm, RegisterEventForm, EditEventForm
+from calendarapp.models import StudentGroup
+from .forms import RegisterUserForm, RegisterEventForm, EditEventForm, EditProfileForm
 from django.contrib.auth.decorators import login_required
 
 
@@ -183,10 +184,42 @@ class EditEventView(View):
 
 
 class DeleteEventView(View):
-    
+
     def get(self, request):
         event_id = request.GET.get('event')
         Event.objects.filter(pk=event_id).first().delete()
         return HttpResponse('success')
 
 
+class EditProfileView(View):
+    template_name = 'calendarapp/edit_profile.html'
+    form_class = EditProfileForm
+
+    def get(self, request):
+        user = request.user
+        pk = user.pk
+        student_group = StudentGroup.objects.filter(pk=pk).first()
+        name = student_group.name
+        email = student_group.email
+        description = student_group.description
+
+        return render(request, self.template_name, {
+            'name': name,
+            'email': email,
+            'description': description,
+        })
+
+    def post(self, request):
+        form = self.form_class(request.POST)
+
+        if form.is_valid():
+            user = request.user
+            pk = user.pk
+            student_group = StudentGroup.objects.filter(pk=pk).first()
+
+            student_group.name = form.cleaned_data['name']
+            student_group.email = form.cleaned_data['email']
+            student_group.description = form.cleaned_data['description']
+            student_group.save()
+
+            return HttpResponse('success')
