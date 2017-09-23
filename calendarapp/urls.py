@@ -1,6 +1,5 @@
 from django.conf.urls import url
-
-from .views import HomePageView, RegisterPageView, ForgotPasswordPageView
+from .views import HomePageView, RegisterPageView, ForgotPasswordPageView, ProfilePageView
 from django.contrib.auth import views as auth_views
 from django.views.generic.base import TemplateView
 
@@ -10,4 +9,6 @@ urlpatterns = [
     url(r'^logout$', auth_views.logout, name='logout'),
     url(r'^register$', RegisterPageView.as_view(), name='register'),
     url(r'^forgot-password$', ForgotPasswordPageView.as_view(), name='resetPassword')
+    url(r'^profile$', ProfilePageView.as_view(), name='profile'),
+
 ]
