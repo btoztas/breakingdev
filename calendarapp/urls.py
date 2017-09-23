@@ -7,7 +7,7 @@ from django.views.generic.base import TemplateView
 
 urlpatterns = [
     url(r'^$',  HomePageView.as_view(), name='home'),
-    url(r'^home2$',  HomePage2View.as_view(), name='home2'),
+    url(r'^home2/$',  HomePage2View.as_view(), name='home2'),
     url(r'^dashboard/$', DashboardView.as_view(), name='dashboard'),
     url(r'^login/$', auth_views.login, {'template_name': 'calendarapp/login.html'}, name='login'),
     url(r'^logout/$', auth_views.logout, {'next_page': '/calendarapp/'}, name='logout'),
