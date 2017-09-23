@@ -8,38 +8,96 @@
 {% block tab_id %}id="home_tab"{% endblock %}
 
 {% block extra_head %}
-    <script type="text/javascript" src="{% static 'schedule.js'%}"></script>
-<link rel='stylesheet' type='text/css' href="{% static 'fullcalendar/dist/fullcalendar.css' %}" />
-<script type='text/javascript' src="{% static 'moment/moment.js' %}"></script>
-<script type='text/javascript' src="{% static 'fullcalendar/dist/fullcalendar.js' %}"></script>
+    <script type="text/javascript" src="{% static 'schedule.js' %}"></script>
+    <link rel='stylesheet' type='text/css' href="{% static 'fullcalendar/dist/fullcalendar.css' %}"/>
+    <script type='text/javascript' src="{% static 'moment/moment.js' %}"></script>
+    <script type='text/javascript' src="{% static 'fullcalendar/dist/fullcalendar.js' %}"></script>
+    <script>
+        function checkAddress(checkbox) {
+
+
+
+            var start = $('#calendar').fullCalendar('getView').intervalStart.format('YYYY-MM-DD');
+            var end = $('#calendar').fullCalendar('getView').intervalEnd.format('YYYY-MM-DD');
+            var url = "/schedule/api/occurrences?calendar_slug="+ checkbox.id + "&start=" + start + "&end=" + end;
+
+            $.getJSON(url, function (data) {
+                for (i = 0; i < data.length; i++) {
+                    if (checkbox.checked) {
+                        $('#calendar').fullCalendar('renderEvent', data[i], true);
+
+                    } else {
+                        $('#calendar').fullCalendar('removeEvents', data[i].id);
+                    }
+                }
+
+            });
+
+
+
+        }
+    </script>
 {% endblock %}
 
 {% block body %}
-<div class="card mb-3">
+    <div class="card mb-3">
         <div class="card-header">
-          <i class="fa fa-area-chart"></i> Calendário</div>
+            <i class="fa fa-area-chart"></i> Calendário
+            <table>
+                <tr>
+                    <td>
+                        <div class="e1Div">
+                            <input type="checkbox" name="MEEC" id="MEEC" onchange="checkAddress(this)"/>
+                            <label for=" e1">MEEC</label>
+                        </div>
+                    </td>
+                </tr>
+
+            </table>
+
+        </div>
         <div class="card-body">
             <div id="calendar"></div>
             <script type='text/javascript'>
-            $(document).ready(function() {
+                $(document).ready(function () {
 
-                // page is now ready, initialize the calendar...
-                $('#calendar').fullCalendar({
-                    eventLimit: true, // for all non-agenda views
-                    views: {
-                        agenda: {
-                            eventLimit: 6 // adjust to 6 only for agendaWeek/agendaDay
-                        }
-                    },
-                    // put your options and callbacks here
-                  events: ('/schedule/api/occurrences?calendar_slug[]=MEEC')
+                    // page is now ready, initialize the calendar...
+                    $('#calendar').fullCalendar({
+                        eventClick: function (event, element) {
 
-                })
+                            event.title = "CLICKED!";
+
+                            $('#calendar').fullCalendar('updateEvent', event);
+
+                        },
+                        eventLimit: true, // for all non-agenda views
+                        views: {
+                            agenda: {
+                                eventLimit: 6 // adjust to 6 only for agendaWeek/agendaDay
+                            }
+                        },
+                        customButtons: {
+                            myCustomButton: {
+                                text: 'Change Degrees',
+                                click: function () {
+                                    alert('clicked the custom button!');
+                                }
+                            }
+                        },
+                        header: {
+                            left: 'prev,next',
+                            center: 'title',
+                            right: 'month,agendaWeek'
+                        },
+                        // put your options and callbacks here
+                        events: ('')
+
+                    })
 
 
-            });
+                });
             </script>
         </div>
         <!--<div class="card-footer small text-muted">Updated yesterday at 11:59 PM</div>-->
-</div>
+    </div>
 {% endblock %}
