@@ -14,6 +14,11 @@ class RegisterUserForm(forms.ModelForm):
 
 class RegisterEventForm(forms.ModelForm):
 
+    time_start = forms.TimeField()
+    time_end = forms.TimeField()
+    date_start = forms.DateField()
+    date_end = forms.DateField()
+
     class Meta:
         model = Event
-        fields = ['start', 'end', 'title', 'description']
+        fields = ['time_start', 'time_end', 'date_start', 'date_end', 'title', 'description']
