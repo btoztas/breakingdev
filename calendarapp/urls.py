@@ -14,5 +14,5 @@ urlpatterns = [
     url(r'^forgot-password$', ForgotPasswordPageView.as_view(), name='resetPassword'),
     url(r'^profile$', ProfilePageView.as_view(), name='profile'),
     url(r'^event$',  EventView.as_view(), name='event'),
-    url(r'^dashboard/new-event', CreateEventView.as_view(), name='create_event'),
+    url(r'^dashboard/new-event', CreateEventView.as_view(), name='create_event'),   
 ]
