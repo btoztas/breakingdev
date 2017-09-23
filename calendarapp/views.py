@@ -14,7 +14,7 @@ from .forms import RegisterUserForm
 
 
 class HomePageView(TemplateView):
-    template_name = 'calendarapp/index.html'
+    template_name = 'calendarapp/home.html'
 
 
 class RegisterPageView(View):
