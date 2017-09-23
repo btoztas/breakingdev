@@ -10,7 +10,12 @@
     <meta name="author" content="">
 
     <title>Freelancer - Start Bootstrap Theme</title>
-
+    <script type="text/javascript" src='/static/jquery/dist/jquery.js'></script>
+    <script type="text/javascript" src='/static/jquery-ui/jquery-ui.min.js'></script>
+      <script type="text/javascript" src="{% static 'schedule.js'%}"></script>
+    <link rel='stylesheet' type='text/css' href="{% static 'fullcalendar/dist/fullcalendar.css' %}" />
+    <script type='text/javascript' src="{% static 'moment/moment.js' %}"></script>
+    <script type='text/javascript' src="{% static 'fullcalendar/dist/fullcalendar.js' %}"></script>
     <!-- Bootstrap core CSS -->
     <link href="{%static 'profile/vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
 
@@ -408,7 +413,7 @@
     </div>
 
     <!-- Bootstrap core JavaScript -->
-    <script src="{%static 'profile/vendor/jquery/jquery.min.js'%}"></script>
+    
     <script src="{%static 'profile/vendor/popper/popper.min.js'%}"></script>
     <script src="{%static 'profile/vendor/bootstrap/js/bootstrap.min.js'%}"></script>
 

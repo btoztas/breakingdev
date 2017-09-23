@@ -1,0 +1,76 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
+  <title>SB Admin - Start Bootstrap Template</title>
+  {% block css %}
+  <!-- Bootstrap core CSS-->
+  <link href="{% static 'calendarapp/vendor/bootstrap/css/bootstrap.min.css'%}" rel="stylesheet">
+  <!-- Custom fonts for this template-->
+  <link href="{% static 'calendarapp/vendor/font-awesome/css/font-awesome.min.css'%}" rel="stylesheet" type="text/css">
+  <!-- Custom styles for this template-->
+  <link href="{% static 'calendarapp/css/sb-admin.css'%}" rel="stylesheet">
+    {% endblock %}
+</head>
+
+<body class="bg-dark">
+
+ {% if error_message %}
+    <p><strong>{{ error_message }}</strong></p>
+ {% endif %}
+
+
+  <div class="container">
+    <div class="card card-register mx-auto mt-5">
+      <div class="card-header">Create a new Event</div>
+      <div class="card-body">
+        <form action="" method="POST">
+          {% csrf_token %}
+          <div class="form-group">
+            <label for="id_username">Event Name</label>
+            <input class="form-control" id="id_eventName" name="eventName" type="text" placeholder="Enter event Name" required>
+          </div>
+          <div class="form-group">
+            <label for="id_description">Description</label>
+            <input class="form-control" id="id_name" type="text" name="name" placeholder="Enter Description" required>
+          </div>
+            <div class="form-group">
+            <label for="id_description">Date</label>
+            <input class="form-control" id="id_date" type="date" name="date" placeholder="Enter Description" required>
+          </div>
+          <div class="form-group">
+            <div class="form-row">
+              <div class="col-md-6">
+                <label for="id_password">Start Time</label>
+                <input class="form-control" id="id_startTime" type="time" name="password" placeholder="Password" required>
+              </div>
+              <div class="col-md-6">
+                <label for="id_password">End Time</label>
+                <input class="form-control" id="id_endTime" type="time" placeholder="Confirm password" required>
+              </div>
+            </div>
+          </div>
+          <input type="submit" class="btn btn-primary btn-block"/>
+        </form>
+        <div class="text-center">
+          <a class="d-block small" href="/calendarapp/dashboard">Back</a>
+        </div>
+      </div>
+    </div>
+  </div>
+  {% block js %}
+  <script src="{% static 'calendarapp/vendor/jquery/jquery.min.js'%}"></script>
+  <script src="{% static 'calendarapp/vendor/popper/popper.min.js'%}"></script>
+  <script src="{% static 'calendarapp/vendor/bootstrap/js/bootstrap.min.js'%}"></script>
+  <!-- Core plugin JavaScript-->
+  <script src="{% static 'calendarapp/vendor/jquery-easing/jquery.easing.min.js'%}"></script>
+  {% endblock %}
+</body>
+
+</html>

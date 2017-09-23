@@ -12,5 +12,6 @@ urlpatterns = [
     url(r'^register$', RegisterPageView.as_view(), name='register'),
     url(r'^forgot-password$', ForgotPasswordPageView.as_view(), name='resetPassword'),
     url(r'^profile$', ProfilePageView.as_view(), name='profile'),
+    url(r'^newEvent', TemplateView.as_view(template_name="calendarapp/createEvent.html"), name='newevent'),
 
 ]
