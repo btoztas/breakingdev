@@ -17,7 +17,7 @@
 
 
 
-            var start = "2017-06-01"
+            var start = $('#calendar').fullCalendar('getView').intervalStart.format('YYYY-MM-DD');
             var end = "2020-01-01"
             var url = "/schedule/api/occurrences?calendar_slug="+ checkbox.id + "&start=" + start + "&end=" + end;
 
@@ -47,14 +47,526 @@
                 <tr>
                     <td>
                         <div class="e1Div">
-                            <input type="checkbox" name="MEEC" id="MEEC" onchange="checkAddress(this)"/>
-                            <label for=" e1">MEEC</label>
+                            <input type="checkbox" name="CELSSBB "id="CELSSBB" onchange="checkAddress(this)"/>
+                            <label for="e1">CELSSBB</label>
                         </div>
                     </td>
                     <td>
                         <div class="e1Div">
-                            <input type="checkbox" name="MEAER" id="MEAER" onchange="checkAddress(this)"/>
-                            <label for=" e1">MEAER</label>
+                            <input type="checkbox" name="DFAIEP "id="DFAIEP" onchange="checkAddress(this)"/>
+                            <label for="e1">DFAIEP</label>
+                        </div>
+                    </td>
+                    <td>
+                        <div class="e1Div">
+                            <input type="checkbox" name="DFAGEC "id="DFAGEC" onchange="checkAddress(this)"/>
+                            <label for="e1">DFAGEC</label>
+                        </div>
+                    </td>
+                    <td>
+                        <div class="e1Div">
+                            <input type="checkbox" name="DFAERM "id="DFAERM" onchange="checkAddress(this)"/>
+                            <label for="e1">DFAERM</label>
+                        </div>
+                    </td>
+                    <td>
+                        <div class="e1Div">
+                            <input type="checkbox" name="DFASSE "id="DFASSE" onchange="checkAddress(this)"/>
+                            <label for="e1">DFASSE</label>
+                        </div>
+                    </td>
+                    <td>
+                        <div class="e1Div">
+                            <input type="checkbox" name="SISE "id="SISE" onchange="checkAddress(this)"/>
+                            <label for="e1">SISE</label>
+                        </div>
+                    </td>
+                    <td>
+                        <div class="e1Div">
+                            <input type="checkbox" name="DFAARSF "id="DFAARSF" onchange="checkAddress(this)"/>
+                            <label for="e1">DFAARSF</label>
+                        </div>
+                    </td>
+                    <td>
+                        <div class="e1Div">
+                            <input type="checkbox" name="DFAERPQ "id="DFAERPQ" onchange="checkAddress(this)"/>
+                            <label for="e1">DFAERPQ</label>
+                        </div>
+                    </td>
+                    <td>
+                        <div class="e1Div">
+                            <input type="checkbox" name="DEPet "id="DEPet" onchange="checkAddress(this)"/>
+                            <label for="e1">DEPet</label>
+                        </div>
+                    </td>
+                    <td>
+                        <div class="e1Div">
+                            <input type="checkbox" name="DEAACPDS "id="DEAACPDS" onchange="checkAddress(this)"/>
+                            <label for="e1">DEAACPDS</label>
+                        </div>
+                    </td>
+                    <td>
+                        <div class="e1Div">
+                            <input type="checkbox" name="AdvaMTech "id="AdvaMTech" onchange="checkAddress(this)"/>
+                            <label for="e1">AdvaMTech</label>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <div class="e1Div">
+                            <input type="checkbox" name="ERPQ "id="ERPQ" onchange="checkAddress(this)"/>
+                            <label for="e1">ERPQ</label>
+                        </div>
+                    </td>
+                    <td>
+                        <div class="e1Div">
+                            <input type="checkbox" name="DEARGF "id="DEARGF" onchange="checkAddress(this)"/>
+                            <label for="e1">DEARGF</label>
+                        </div>
+                    </td>
+                    <td>
+                        <div class="e1Div">
+                            <input type="checkbox" name="DEMat "id="DEMat" onchange="checkAddress(this)"/>
+                            <label for="e1">DEMat</label>
+                        </div>
+                    </td>
+                    <td>
+                        <div class="e1Div">
+                            <input type="checkbox" name="DEPE "id="DEPE" onchange="checkAddress(this)"/>
+                            <label for="e1">DEPE</label>
+                        </div>
+                    </td>
+                    <td>
+                        <div class="e1Div">
+                            <input type="checkbox" name="DTransp "id="DTransp" onchange="checkAddress(this)"/>
+                            <label for="e1">DTransp</label>
+                        </div>
+                    </td>
+                    <td>
+                        <div class="e1Div">
+                            <input type="checkbox" name="DEFT "id="DEFT" onchange="checkAddress(this)"/>
+                            <label for="e1">DEFT</label>
+                        </div>
+                    </td>
+                    <td>
+                        <div class="e1Div">
+                            <input type="checkbox" name="DMte "id="DMte" onchange="checkAddress(this)"/>
+                            <label for="e1">DMte</label>
+                        </div>
+                    </td>
+                    <td>
+                        <div class="e1Div">
+                            <input type="checkbox" name="DSSE "id="DSSE" onchange="checkAddress(this)"/>
+                            <label for="e1">DSSE</label>
+                        </div>
+                    </td>
+                    <td>
+                        <div class="e1Div">
+                            <input type="checkbox" name="DBioeng "id="DBioeng" onchange="checkAddress(this)"/>
+                            <label for="e1">DBioeng</label>
+                        </div>
+                    </td>
+                    <td>
+                        <div class="e1Div">
+                            <input type="checkbox" name="DGeo "id="DGeo" onchange="checkAddress(this)"/>
+                            <label for="e1">DGeo</label>
+                        </div>
+                    </td>
+                    <td>
+                        <div class="e1Div">
+                            <input type="checkbox" name="DEAer "id="DEAer" onchange="checkAddress(this)"/>
+                            <label for="e1">DEAer</label>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <div class="e1Div">
+                            <input type="checkbox" name="DET "id="DET" onchange="checkAddress(this)"/>
+                            <label for="e1">DET</label>
+                        </div>
+                    </td>
+                    <td>
+                        <div class="e1Div">
+                            <input type="checkbox" name="DEIC "id="DEIC" onchange="checkAddress(this)"/>
+                            <label for="e1">DEIC</label>
+                        </div>
+                    </td>
+                    <td>
+                        <div class="e1Div">
+                            <input type="checkbox" name="DEN "id="DEN" onchange="checkAddress(this)"/>
+                            <label for="e1">DEN</label>
+                        </div>
+                    </td>
+                    <td>
+                        <div class="e1Div">
+                            <input type="checkbox" name="DEAEPP "id="DEAEPP" onchange="checkAddress(this)"/>
+                            <label for="e1">DEAEPP</label>
+                        </div>
+                    </td>
+                    <td>
+                        <div class="e1Div">
+                            <input type="checkbox" name="DEMec "id="DEMec" onchange="checkAddress(this)"/>
+                            <label for="e1">DEMec</label>
+                        </div>
+                    </td>
+                    <td>
+                        <div class="e1Div">
+                            <input type="checkbox" name="DEASegInf "id="DEASegInf" onchange="checkAddress(this)"/>
+                            <label for="e1">DEASegInf</label>
+                        </div>
+                    </td>
+                    <td>
+                        <div class="e1Div">
+                            <input type="checkbox" name="ST "id="ST" onchange="checkAddress(this)"/>
+                            <label for="e1">ST</label>
+                        </div>
+                    </td>
+                    <td>
+                        <div class="e1Div">
+                            <input type="checkbox" name="DMat "id="DMat" onchange="checkAddress(this)"/>
+                            <label for="e1">DMat</label>
+                        </div>
+                    </td>
+                    <td>
+                        <div class="e1Div">
+                            <input type="checkbox" name="DQuim "id="DQuim" onchange="checkAddress(this)"/>
+                            <label for="e1">DQuim</label>
+                        </div>
+                    </td>
+                    <td>
+                        <div class="e1Div">
+                            <input type="checkbox" name="DBiotec "id="DBiotec" onchange="checkAddress(this)"/>
+                            <label for="e1">DBiotec</label>
+                        </div>
+                    </td>
+                    <td>
+                        <div class="e1Div">
+                            <input type="checkbox" name="DEQuim "id="DEQuim" onchange="checkAddress(this)"/>
+                            <label for="e1">DEQuim</label>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <div class="e1Div">
+                            <input type="checkbox" name="DEAmb "id="DEAmb" onchange="checkAddress(this)"/>
+                            <label for="e1">DEAmb</label>
+                        </div>
+                    </td>
+                    <td>
+                        <div class="e1Div">
+                            <input type="checkbox" name="DEALIT "id="DEALIT" onchange="checkAddress(this)"/>
+                            <label for="e1">DEALIT</label>
+                        </div>
+                    </td>
+                    <td>
+                        <div class="e1Div">
+                            <input type="checkbox" name="DEGest "id="DEGest" onchange="checkAddress(this)"/>
+                            <label for="e1">DEGest</label>
+                        </div>
+                    </td>
+                    <td>
+                        <div class="e1Div">
+                            <input type="checkbox" name="DEAEngCmp "id="DEAEngCmp" onchange="checkAddress(this)"/>
+                            <label for="e1">DEAEngCmp</label>
+                        </div>
+                    </td>
+                    <td>
+                        <div class="e1Div">
+                            <input type="checkbox" name="DEEC "id="DEEC" onchange="checkAddress(this)"/>
+                            <label for="e1">DEEC</label>
+                        </div>
+                    </td>
+                    <td>
+                        <div class="e1Div">
+                            <input type="checkbox" name="DEBiom "id="DEBiom" onchange="checkAddress(this)"/>
+                            <label for="e1">DEBiom</label>
+                        </div>
+                    </td>
+                    <td>
+                        <div class="e1Div">
+                            <input type="checkbox" name="DArq "id="DArq" onchange="checkAddress(this)"/>
+                            <label for="e1">DArq</label>
+                        </div>
+                    </td>
+                    <td>
+                        <div class="e1Div">
+                            <input type="checkbox" name="DEFT "id="DEFT" onchange="checkAddress(this)"/>
+                            <label for="e1">DEFT</label>
+                        </div>
+                    </td>
+                    <td>
+                        <div class="e1Div">
+                            <input type="checkbox" name="DF "id="DF" onchange="checkAddress(this)"/>
+                            <label for="e1">DF</label>
+                        </div>
+                    </td>
+                    <td>
+                        <div class="e1Div">
+                            <input type="checkbox" name="DEC "id="DEC" onchange="checkAddress(this)"/>
+                            <label for="e1">DEC</label>
+                        </div>
+                    </td>
+                    <td>
+                        <div class="e1Div">
+                            <input type="checkbox" name="MEM "id="MEM" onchange="checkAddress(this)"/>
+                            <label for="e1">MEM</label>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <div class="e1Div">
+                            <input type="checkbox" name="MEGI "id="MEGI" onchange="checkAddress(this)"/>
+                            <label for="e1">MEGI</label>
+                        </div>
+                    </td>
+                    <td>
+                        <div class="e1Div">
+                            <input type="checkbox" name="MEE "id="MEE" onchange="checkAddress(this)"/>
+                            <label for="e1">MEE</label>
+                        </div>
+                    </td>
+                    <td>
+                        <div class="e1Div">
+                            <input type="checkbox" name="MERC "id="MERC" onchange="checkAddress(this)"/>
+                            <label for="e1">MERC</label>
+                        </div>
+                    </td>
+                    <td>
+                        <div class="e1Div">
+                            <input type="checkbox" name="MEIC-T "id="MEIC-T" onchange="checkAddress(this)"/>
+                            <label for="e1">MEIC-T</label>
+                        </div>
+                    </td>
+                    <td>
+                        <div class="e1Div">
+                            <input type="checkbox" name="MISE "id="MISE" onchange="checkAddress(this)"/>
+                            <label for="e1">MISE</label>
+                        </div>
+                    </td>
+                    <td>
+                        <div class="e1Div">
+                            <input type="checkbox" name="MEFarm "id="MEFarm" onchange="checkAddress(this)"/>
+                            <label for="e1">MEFarm</label>
+                        </div>
+                    </td>
+                    <td>
+                        <div class="e1Div">
+                            <input type="checkbox" name="MicroBio "id="MicroBio" onchange="checkAddress(this)"/>
+                            <label for="e1">MicroBio</label>
+                        </div>
+                    </td>
+                    <td>
+                        <div class="e1Div">
+                            <input type="checkbox" name="MSIDC "id="MSIDC" onchange="checkAddress(this)"/>
+                            <label for="e1">MSIDC</label>
+                        </div>
+                    </td>
+                    <td>
+                        <div class="e1Div">
+                            <input type="checkbox" name="MTBiom "id="MTBiom" onchange="checkAddress(this)"/>
+                            <label for="e1">MTBiom</label>
+                        </div>
+                    </td>
+                    <td>
+                        <div class="e1Div">
+                            <input type="checkbox" name="MBiotec "id="MBiotec" onchange="checkAddress(this)"/>
+                            <label for="e1">MBiotec</label>
+                        </div>
+                    </td>
+                    <td>
+                        <div class="e1Div">
+                            <input type="checkbox" name="MEGE "id="MEGE" onchange="checkAddress(this)"/>
+                            <label for="e1">MEGE</label>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <div class="e1Div">
+                            <input type="checkbox" name="MPSR "id="MPSR" onchange="checkAddress(this)"/>
+                            <label for="e1">MPSR</label>
+                        </div>
+                    </td>
+                    <td>
+                        <div class="e1Div">
+                            <input type="checkbox" name="MPOT "id="MPOT" onchange="checkAddress(this)"/>
+                            <label for="e1">MPOT</label>
+                        </div>
+                    </td>
+                    <td>
+                        <div class="e1Div">
+                            <input type="checkbox" name="MUOT "id="MUOT" onchange="checkAddress(this)"/>
+                            <label for="e1">MUOT</label>
+                        </div>
+                    </td>
+                    <td>
+                        <div class="e1Div">
+                            <input type="checkbox" name="MEST "id="MEST" onchange="checkAddress(this)"/>
+                            <label for="e1">MEST</label>
+                        </div>
+                    </td>
+                    <td>
+                        <div class="e1Div">
+                            <input type="checkbox" name="MEP "id="MEP" onchange="checkAddress(this)"/>
+                            <label for="e1">MEP</label>
+                        </div>
+                    </td>
+                    <td>
+                        <div class="e1Div">
+                            <input type="checkbox" name="MEIC-A "id="MEIC-A" onchange="checkAddress(this)"/>
+                            <label for="e1">MEIC-A</label>
+                        </div>
+                    </td>
+                    <td>
+                        <div class="e1Div">
+                            <input type="checkbox" name="MMA "id="MMA" onchange="checkAddress(this)"/>
+                            <label for="e1">MMA</label>
+                        </div>
+                    </td>
+                    <td>
+                        <div class="e1Div">
+                            <input type="checkbox" name="MEGM "id="MEGM" onchange="checkAddress(this)"/>
+                            <label for="e1">MEGM</label>
+                        </div>
+                    </td>
+                    <td>
+                        <div class="e1Div">
+                            <input type="checkbox" name="MQ "id="MQ" onchange="checkAddress(this)"/>
+                            <label for="e1">MQ</label>
+                        </div>
+                    </td>
+                    <td>
+                        <div class="e1Div">
+                            <input type="checkbox" name="MBioNano "id="MBioNano" onchange="checkAddress(this)"/>
+                            <label for="e1">MBioNano</label>
+                        </div>
+                    </td>
+                    <td>
+                        <div class="e1Div">
+                            <input type="checkbox" name="LERC "id="LERC" onchange="checkAddress(this)"/>
+                            <label for="e1">LERC</label>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <div class="e1Div">
+                            <input type="checkbox" name="LEE "id="LEE" onchange="checkAddress(this)"/>
+                            <label for="e1">LEE</label>
+                        </div>
+                    </td>
+                    <td>
+                        <div class="e1Div">
+                            <input type="checkbox" name="LEGI "id="LEGI" onchange="checkAddress(this)"/>
+                            <label for="e1">LEGI</label>
+                        </div>
+                    </td>
+                    <td>
+                        <div class="e1Div">
+                            <input type="checkbox" name="LEIC-T "id="LEIC-T" onchange="checkAddress(this)"/>
+                            <label for="e1">LEIC-T</label>
+                        </div>
+                    </td>
+                    <td>
+                        <div class="e1Div">
+                            <input type="checkbox" name="LMAC "id="LMAC" onchange="checkAddress(this)"/>
+                            <label for="e1">LMAC</label>
+                        </div>
+                    </td>
+                    <td>
+                        <div class="e1Div">
+                            <input type="checkbox" name="LEAN "id="LEAN" onchange="checkAddress(this)"/>
+                            <label for="e1">LEAN</label>
+                        </div>
+                    </td>
+                    <td>
+                        <div class="e1Div">
+                            <input type="checkbox" name="LEGM "id="LEGM" onchange="checkAddress(this)"/>
+                            <label for="e1">LEGM</label>
+                        </div>
+                    </td>
+                    <td>
+                        <div class="e1Div">
+                            <input type="checkbox" name="LEIC-A "id="LEIC-A" onchange="checkAddress(this)"/>
+                            <label for="e1">LEIC-A</label>
+                        </div>
+                    </td>
+                    <td>
+                        <div class="e1Div">
+                            <input type="checkbox" name="MEBiom "id="MEBiom" onchange="checkAddress(this)"/>
+                            <label for="e1">MEBiom</label>
+                        </div>
+                    </td>
+                    <td>
+                        <div class="e1Div">
+                            <input type="checkbox" name="MEC "id="MEC" onchange="checkAddress(this)"/>
+                            <label for="e1">MEC</label>
+                        </div>
+                    </td>
+                    <td>
+                        <div class="e1Div">
+                            <input type="checkbox" name="MEEC "id="MEEC" onchange="checkAddress(this)"/>
+                            <label for="e1">MEEC</label>
+                        </div>
+                    </td>
+                    <td>
+                        <div class="e1Div">
+                            <input type="checkbox" name="MEBiol "id="MEBiol" onchange="checkAddress(this)"/>
+                            <label for="e1">MEBiol</label>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <div class="e1Div">
+                            <input type="checkbox" name="MEQ "id="MEQ" onchange="checkAddress(this)"/>
+                            <label for="e1">MEQ</label>
+                        </div>
+                    </td>
+                    <td>
+                        <div class="e1Div">
+                            <input type="checkbox" name="MEMec "id="MEMec" onchange="checkAddress(this)"/>
+                            <label for="e1">MEMec</label>
+                        </div>
+                    </td>
+                    <td>
+                        <div class="e1Div">
+                            <input type="checkbox" name="MA "id="MA" onchange="checkAddress(this)"/>
+                            <label for="e1">MA</label>
+                        </div>
+                    </td>
+                    <td>
+                        <div class="e1Div">
+                            <input type="checkbox" name="POSI "id="POSI" onchange="checkAddress(this)"/>
+                            <label for="e1">POSI</label>
+                        </div>
+                    </td>
+                    <td>
+                        <div class="e1Div">
+                            <input type="checkbox" name="MEAN "id="MEAN" onchange="checkAddress(this)"/>
+                            <label for="e1">MEAN</label>
+                        </div>
+                    </td>
+                    <td>
+                        <div class="e1Div">
+                            <input type="checkbox" name="MEAer "id="MEAer" onchange="checkAddress(this)"/>
+                            <label for="e1">MEAer</label>
+                        </div>
+                    </td>
+                    <td>
+                        <div class="e1Div">
+                            <input type="checkbox" name="MEAmbi "id="MEAmbi" onchange="checkAddress(this)"/>
+                            <label for="e1">MEAmbi</label>
+                        </div>
+                    </td>
+                    <td>
+                        <div class="e1Div">
+                            <input type="checkbox" name="MEFT "id="MEFT" onchange="checkAddress(this)"/>
+                            <label for="e1">MEFT</label>
                         </div>
                     </td>
                 </tr>
