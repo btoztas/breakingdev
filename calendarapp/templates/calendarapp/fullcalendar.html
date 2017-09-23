@@ -17,8 +17,8 @@
 
 
 
-            var start = $('#calendar').fullCalendar('getView').intervalStart.format('YYYY-MM-DD');
-            var end = $('#calendar').fullCalendar('getView').intervalEnd.format('YYYY-MM-DD');
+            var start = "2017-06-01"
+            var end = "2020-01-01"
             var url = "/schedule/api/occurrences?calendar_slug="+ checkbox.id + "&start=" + start + "&end=" + end;
 
             $.getJSON(url, function (data) {
