@@ -5,10 +5,12 @@ from django.db import models
 from django.contrib.auth.models import User
 
 # Create your models here.
+from schedule.models import Calendar
 
 
 class StudentGroup(User):
     name = models.CharField(max_length=30)
+    acro = models.CharField(max_length=10)
     description = models.CharField(max_length=500)
     photo = models.CharField(max_length=500)
 
