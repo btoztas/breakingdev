@@ -17,7 +17,7 @@
 
 
 
-            var start = "2017-06-01"
+            var start = $('#calendar').fullCalendar('getView').intervalStart.format('YYYY-MM-DD');
             var end = "2020-01-01"
             var url = "/schedule/api/occurrences?calendar_slug="+ checkbox.id + "&start=" + start + "&end=" + end;
 
@@ -51,12 +51,15 @@
                             <label for=" e1">MEEC</label>
                         </div>
                     </td>
+
                     <td>
                         <div class="e1Div">
                             <input type="checkbox" name="MEAer" id="MEAer" onchange="checkAddress(this)"/>
                             <label for=" e1">MEAer</label>
                         </div>
                     </td>
+
+
                 </tr>
 
             </table>
