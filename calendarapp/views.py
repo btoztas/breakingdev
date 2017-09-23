@@ -17,6 +17,10 @@ class HomePageView(TemplateView):
     template_name = 'calendarapp/home.html'
 
 
+class HomePage2View(TemplateView):
+    template_name = 'calendarapp/home2.html'
+
+
 class RegisterPageView(View):
     form_class = RegisterUserForm
     template_name = 'calendarapp/register.html'
