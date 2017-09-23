@@ -18,47 +18,49 @@
   <link href="{% static 'calendarapp/css/sb-admin.css'%}" rel="stylesheet">
     {% endblock %}
 </head>
-</head>
 
 <body class="bg-dark">
+
+ {% if error_message %}
+    <p><strong>{{ error_message }}</strong></p>
+ {% endif %}
+
+
   <div class="container">
     <div class="card card-register mx-auto mt-5">
       <div class="card-header">Register an Account</div>
       <div class="card-body">
-        <form>
+        <form action="" method="POST">
+          {% csrf_token %}
           <div class="form-group">
-            <div class="form-row">
-              <div class="col-md-6">
-                <label for="exampleInputName">First name</label>
-                <input class="form-control" id="exampleInputName" type="text" aria-describedby="nameHelp" placeholder="Enter first name">
-              </div>
-              <div class="col-md-6">
-                <label for="exampleInputLastName">Last name</label>
-                <input class="form-control" id="exampleInputLastName" type="text" aria-describedby="nameHelp" placeholder="Enter last name">
-              </div>
-            </div>
+            <label for="id_username">Username</label>
+            <input class="form-control" id="id_username" name="username" type="text" placeholder="Enter username" required>
           </div>
           <div class="form-group">
-            <label for="exampleInputEmail1">Email address</label>
-            <input class="form-control" id="exampleInputEmail1" type="email" aria-describedby="emailHelp" placeholder="Enter email">
+            <label for="id_name">Students Group Name</label>
+            <input class="form-control" id="id_name" type="text" name="name" placeholder="Enter group name" required>
+          </div>
+          <div class="form-group">
+            <label for="id_email">Email address</label>
+            <input class="form-control" id="id_email" type="email" name="email" aria-describedby="emailHelp" placeholder="Enter email" required>
           </div>
           <div class="form-group">
             <div class="form-row">
               <div class="col-md-6">
-                <label for="exampleInputPassword1">Password</label>
-                <input class="form-control" id="exampleInputPassword1" type="password" placeholder="Password">
+                <label for="id_password">Password</label>
+                <input class="form-control" id="id_password" type="password" name="password" placeholder="Password" required>
               </div>
               <div class="col-md-6">
-                <label for="exampleConfirmPassword">Confirm password</label>
-                <input class="form-control" id="exampleConfirmPassword" type="password" placeholder="Confirm password">
+                <label for="id_password">Confirm password</label>
+                <input class="form-control" id="id_password" type="password" placeholder="Confirm password" required>
               </div>
             </div>
           </div>
-          <a class="btn btn-primary btn-block" href="login.html">Register</a>
+          <input type="submit" class="btn btn-primary btn-block"/>
         </form>
         <div class="text-center">
-          <a class="d-block small mt-3" href="login.html">Login Page</a>
-          <a class="d-block small" href="forgot-password.html">Forgot Password?</a>
+          <a class="d-block small mt-3" href="/calendarapp/login">Login Page</a>
+          <a class="d-block small" href="/calendarapp/forgot-password">Forgot Password?</a>
         </div>
       </div>
     </div>
