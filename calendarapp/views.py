@@ -60,7 +60,10 @@ class RegisterPageView(View):
 class ForgotPasswordPageView(TemplateView):
     template_name = 'calendarapp/forgot-password.html'
 
+
 class ProfilePageView(TemplateView):
     template_name = 'calendarapp/profile.html'
+
+
 
 
