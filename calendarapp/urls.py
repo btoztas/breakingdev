@@ -24,5 +24,4 @@ urlpatterns = [
     url(r'^logout/$', auth_views.logout, {'next_page': '/calendarapp/'}, name='logout'),
     url(r'^register/$', RegisterPageView.as_view(), name='register'),
     url(r'^forgot-password/$', ForgotPasswordPageView.as_view(), name='resetPassword'),
-
 ]

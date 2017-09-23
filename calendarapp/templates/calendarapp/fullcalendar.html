@@ -16,13 +16,23 @@
         function checkAddress(checkbox) {
 
 
-            if (!checkbox.checked) {
-                var event={ id: 1 , title: 'New event', start:  new Date()};
-                $('#calendar').fullCalendar( 'renderEvent', event, true);
-            }else{
-                
-                $('#calendar').fullCalendar( 'removeEvent', 1);
-            }
+
+            var start = "2017-06-01"
+            var end = "2020-01-01"
+            var url = "/schedule/api/occurrences?calendar_slug="+ checkbox.id + "&start=" + start + "&end=" + end;
+
+            $.getJSON(url, function (data) {
+                for (i = 0; i < data.length; i++) {
+                    if (checkbox.checked) {
+                        $('#calendar').fullCalendar('renderEvent', data[i], true);
+
+                    } else {
+                        $('#calendar').fullCalendar('removeEvents', data[i].id);
+                    }
+                }
+
+            });
+
 
 
         }
@@ -37,8 +47,14 @@
                 <tr>
                     <td>
                         <div class="e1Div">
-                            <input type="checkbox" checked="checked" name="e1" id="e1" onchange="checkAddress(this)"/>
-                            <label for=" e1">Event Type 1</label>
+                            <input type="checkbox" name="MEEC" id="MEEC" onchange="checkAddress(this)"/>
+                            <label for=" e1">MEEC</label>
+                        </div>
+                    </td>
+                    <td>
+                        <div class="e1Div">
+                            <input type="checkbox" name="MEAER" id="MEAER" onchange="checkAddress(this)"/>
+                            <label for=" e1">MEAER</label>
                         </div>
                     </td>
                 </tr>
@@ -80,7 +96,7 @@
                             right: 'month,agendaWeek'
                         },
                         // put your options and callbacks here
-                        events: ('/schedule/api/occurrences?calendar_slug[]=MEEC')
+                        events: ('')
 
                     })
 
