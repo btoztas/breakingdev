@@ -83,6 +83,11 @@ class EventView(TemplateView):
 
 
 @method_decorator(login_required(login_url='/calendarapp/login/'), name='dispatch')
+class DashboardView(TemplateView):
+    template_name = "calendarapp/fullcalendar.html"
+
+
+@method_decorator(login_required(login_url='/calendarapp/login/'), name='dispatch')
 class CreateEventView(View):
     template_name = 'calendarapp/createEvent.html'
     form_class = RegisterEventForm
