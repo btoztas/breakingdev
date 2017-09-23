@@ -25,9 +25,17 @@
 
                 // page is now ready, initialize the calendar...
                 $('#calendar').fullCalendar({
+                    eventLimit: true, // for all non-agenda views
+                    views: {
+                        agenda: {
+                            eventLimit: 6 // adjust to 6 only for agendaWeek/agendaDay
+                        }
+                    },
                     // put your options and callbacks here
-                  events: '/schedule/api/occurrences?calendar_slug=teste'
+                  events: ('/schedule/api/occurrences?calendar_slug[]=MEEC')
+
                 })
+
 
             });
             </script>

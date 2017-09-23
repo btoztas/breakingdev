@@ -1,5 +1,6 @@
 from django.conf.urls import url
-from .views import HomePageView, RegisterPageView, ForgotPasswordPageView, ProfilePageView, HomePage2View, EventView
+from .views import HomePageView, RegisterPageView, ForgotPasswordPageView, ProfilePageView, HomePage2View, CreateEventView, EventView
+
 from django.contrib.auth import views as auth_views
 from django.views.generic.base import TemplateView
 
@@ -12,7 +13,6 @@ urlpatterns = [
     url(r'^register$', RegisterPageView.as_view(), name='register'),
     url(r'^forgot-password$', ForgotPasswordPageView.as_view(), name='resetPassword'),
     url(r'^profile$', ProfilePageView.as_view(), name='profile'),
-    url(r'^newEvent', TemplateView.as_view(template_name="calendarapp/createEvent.html"), name='newevent'),
     url(r'^event$',  EventView.as_view(), name='event'),
-
+    url(r'^dashboard/new-event', CreateEventView.as_view(), name='create_event'),
 ]
