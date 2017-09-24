@@ -63,7 +63,7 @@ class RegisterPageView(View):
                 if user.is_active:
                     login(request, user)
                     # TODO: REDIRECT TO GOOD PAGE
-                    return HttpResponse('success')
+                    return redirect("/calendarapp/profile/"+str(calendar.id))
 
             #TODO: REDIRECT TO ERROR PAGE
 
@@ -143,7 +143,7 @@ class CreateEventView(View):
             new_event.save()
 
             if new_event is not None:
-                return HttpResponse('success')
+                return redirect('/calendarapp/dashboard')
 
 
 @method_decorator(login_required(login_url='/calendarapp/login/'), name='dispatch')
@@ -202,7 +202,7 @@ class EditEventView(View):
             event.title = title
             event.description = description
             event.save()
-            return HttpResponse('success')
+            return redirect('/calendarapp/dashboard')
 
 
 @method_decorator(login_required(login_url='/calendarapp/login/'), name='dispatch')
@@ -211,7 +211,7 @@ class DeleteEventView(View):
     def get(self, request):
         event_id = request.GET.get('event')
         Event.objects.filter(pk=event_id).first().delete()
-        return HttpResponse('success')
+        return redirect('/calendarapp/dashboard')
 
 
 @method_decorator(login_required(login_url='/calendarapp/login/'), name='dispatch')
@@ -234,7 +234,7 @@ class EditProfileView(View):
         })
 
     def post(self, request):
-        form = self.form_class(request.POST)
+        form = self.form_class(request.POST,request.FILES)
 
         if form.is_valid():
             user = request.user
@@ -244,6 +244,8 @@ class EditProfileView(View):
             student_group.name = form.cleaned_data['name']
             student_group.email = form.cleaned_data['email']
             student_group.description = form.cleaned_data['description']
+            student_group.image = form.cleaned_data['image']
+
             student_group.save()
 
-            return HttpResponse('success')
+            return redirect('/calendarapp/dashboard')
