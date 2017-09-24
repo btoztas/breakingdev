@@ -80,9 +80,9 @@
                     // put your options and callbacks here
                   eventClick: function (calEvent, jsEvent, view) {
 
-
-                            console.log(calEvent.toString())
-                            window.location.href = "/calendarapp/event/" + calEvent.id;
+                            var id = calEvent.id - 1;
+                            
+                            window.location.href = "/calendarapp/event/" + id
 
                   },
                     eventLimit: true, // for all non-agenda views
@@ -105,7 +105,7 @@
                             right: 'month,agendaWeek'
                         },
 
-                  events: '/schedule/api/occurrences?'
+                  events: '/schedule/api/occurrences?calendar_slug=NUCLEOS'
                 })
 
             });
