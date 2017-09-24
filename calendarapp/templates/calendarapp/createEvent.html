@@ -43,6 +43,10 @@
         <form action="" method="POST" enctype="multipart/form-data">
           {% csrf_token %}
           <div class="form-group">
+            <label for="id_description">Tipo</label>
+            <input class="form-control" id="id_type" type="text" name="type" placeholder="Introduz o tipo do evento" required>
+          </div>
+          <div class="form-group">
             <label for="id_title">Título</label>
             <input class="form-control" id="id_title" name="title" type="text" placeholder="Introduz nome evento" required>
           </div>
@@ -75,6 +79,11 @@
                 <input class="form-control" id="id_end_time" type="time" name="time_end"required>
               </div>
             </div>
+          </div>
+          <div class="form-group">
+            <label for="id_description">Local</label>
+            <input class="form-control" id="id_description" type="text" name="place" placeholder="Introduz o local" required>
+
           </div>
             <div class="form-group">
                <label for="id_description">Photo</label>
