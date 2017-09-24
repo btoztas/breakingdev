@@ -219,6 +219,9 @@ class EditEventView(View):
             'time_start': time_start,
             'date_end': date_end,
             'time_end': time_end,
+            'place': event.place,
+            'image': event.image.url,
+            'tipo': event.type
         })
 
     def post(self, request):
@@ -234,6 +237,9 @@ class EditEventView(View):
             end_time = form.cleaned_data['time_end']
             title = form.cleaned_data['title']
             description = form.cleaned_data['description']
+            photo = form.cleaned_data['image']
+            place = form.cleaned_data['place']
+            tipo = form.cleaned_data['type']
 
             start = datetime.combine(start_date, start_time)
             end = datetime.combine(end_date, end_time)
@@ -242,7 +248,9 @@ class EditEventView(View):
             event.end = end
             event.title = title
             event.description = description
-            event.image = form.cleaned_data['image']
+            event.place = place
+            event.image = photo
+            event.type = tipo
             event.save()
             return redirect('/calendarapp/dashboard')
 
@@ -272,12 +280,14 @@ class EditProfileView(View):
         student_group = StudentGroup.objects.filter(pk=pk).first()
         name = student_group.name
         email = student_group.email
+        image = student_group.image.url
         description = student_group.description
 
         return render(request, self.template_name, {
             'name': name,
             'email': email,
             'description': description,
+            'image': image
         })
 
     def post(self, request):
