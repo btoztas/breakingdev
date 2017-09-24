@@ -78,12 +78,33 @@
                 // page is now ready, initialize the calendar...
                 $('#calendar').fullCalendar({
                     // put your options and callbacks here
-                  eventClick: function (event, element) {
+                  eventClick: function (calEvent, jsEvent, view) {
 
 
-                            window.location.href = "/calendarapp/event/" + element.id;
+
+                            window.location.href = "/calendarapp/event/" + calEvent.id;
 
                   },
+                    eventLimit: true, // for all non-agenda views
+                        views: {
+                            agenda: {
+                                eventLimit: 6 // adjust to 6 only for agendaWeek/agendaDay
+                            }
+                        },
+                        customButtons: {
+                            myCustomButton: {
+                                text: 'Change Degrees',
+                                click: function () {
+                                    alert('clicked the custom button!');
+                                }
+                            }
+                        },
+                        header: {
+                            left: 'prev,next',
+                            center: 'title',
+                            right: 'month,agendaWeek'
+                        },
+
                   events: '/schedule/api/occurrences?'
                 })
 
