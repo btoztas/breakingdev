@@ -38,7 +38,7 @@
     <div class="card card-register mx-auto mt-5">
       <div class="card-header">Edit Profile</div>
       <div class="card-body">
-       <form action="" method="POST">
+       <form action="" method="post" enctype="multipart/form-data">
           {% csrf_token %}
           <div class="form-group">
             <label for="id_name">Students Group Name</label>
@@ -52,7 +52,11 @@
             <label for="id_description">Description</label>
             <input class="form-control" id="id_description" type="text" name="description" value="{{ description }}" required>
           </div>
-          <input type="submit" class="btn btn-primary btn-block"/>
+           <div class="form-group">
+               <label for="id_description">Photo</label>
+             <input id="id_image" type="file" class="" name="image">
+           </div>
+           <input type="submit" class="btn btn-primary btn-block"/>
         </form>
        <div class="text-center">
           <a class="d-block small" href="/calendarapp/dashboard">Back</a>
