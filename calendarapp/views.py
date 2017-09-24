@@ -145,7 +145,7 @@ class CreateEventView(View):
             new_event.save()
 
             if new_event is not None:
-                return redirect('/calendarapp/dashboard')
+                return redirect('/calendarapp/event/'+str(new_event.pk))
 
 
 @method_decorator(login_required(login_url='/calendarapp/login/'), name='dispatch')
