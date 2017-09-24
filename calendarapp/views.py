@@ -85,14 +85,14 @@ class ProfilePageView(TemplateView):
         if user.is_superuser:
             return HttpResponse("Page not found")
 
-
         name = student_group.name
         description = student_group.description
         events = Event.objects.filter(creator=student_group).all()
-
+        image_url = student_group.image.url
         return render(request, self.template_name, {
             'name': name,
             'description': description,
+            'image': image_url,
             'event_list': events
         })
 
@@ -107,12 +107,21 @@ class EventView(TemplateView):
 
         title = event.title
         description = event.description
+
         image_url = event.image.url
+
+        start = event.start
+        end = event.end
+
 
         return render(request, self.template_name, {
             'title': title,
             'description': description,
             'image': image_url
+
+            'start':start,
+            'end':end,
+1
         })
 
 
