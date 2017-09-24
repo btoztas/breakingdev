@@ -3,6 +3,7 @@ from __future__ import unicode_literals
 
 from datetime import datetime
 
+from django.contrib.auth.models import User
 from django.core.urlresolvers import reverse
 from django.shortcuts import render, redirect
 from django.contrib.auth import authenticate, login
@@ -56,14 +57,11 @@ class RegisterPageView(View):
             student_group.save()
             user = authenticate(username=username, password=password)
 
-            calendar = Calendar(name=username, slug=acro)
-            calendar.save()
-
             if user is not None:
                 if user.is_active:
                     login(request, user)
                     # TODO: REDIRECT TO GOOD PAGE
-                    return redirect("/calendarapp/profile/"+str(calendar.id))
+                    return redirect("/calendarapp/profile/"+str(student_group.id))
 
             #TODO: REDIRECT TO ERROR PAGE
 
@@ -79,8 +77,15 @@ class ProfilePageView(TemplateView):
     template_name = 'calendarapp/profile.html'
 
     def get(self, request, *args, **kwargs):
+
         profile_id = kwargs['profile_id']
         student_group = StudentGroup.objects.filter(pk=profile_id).first()
+        user = User.objects.filter(pk=profile_id).first()
+
+        if user.is_superuser:
+            return HttpResponse("Page not found")
+
+
         name = student_group.name
         description = student_group.description
         events = Event.objects.filter(creator=student_group).all()
@@ -134,11 +139,10 @@ class CreateEventView(View):
 
             new_event = form.save(commit=False)
             user = request.user
-            username = user.username
             start = datetime.combine(start_date, start_time)
             end = datetime.combine(end_date, end_time)
 
-            calendar = Calendar.objects.filter(name=username).first()
+            calendar = Calendar.objects.filter(slug='NUCLEOS').first()
             new_event.creator = user
             new_event.start = start
             new_event.end = end
@@ -224,7 +228,12 @@ class EditProfileView(View):
     form_class = EditProfileForm
 
     def get(self, request):
+
         user = request.user
+
+        if user.is_superuser:
+            return HttpResponse("<center><h1>HELLO SUPER USER, YOU CAN'T EDIT YOUR PROFILE<h1></center>")
+
         pk = user.pk
         student_group = StudentGroup.objects.filter(pk=pk).first()
         name = student_group.name
