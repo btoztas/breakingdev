@@ -1,6 +1,6 @@
 from django import forms
-from calendarapp.models import StudentGroup
-from schedule.models import Event
+from calendarapp.models import StudentGroup, Event
+
 
 
 class RegisterUserForm(forms.ModelForm):
@@ -21,7 +21,7 @@ class RegisterEventForm(forms.ModelForm):
 
     class Meta:
         model = Event
-        fields = ['time_start', 'time_end', 'date_start', 'date_end', 'title', 'description']
+        fields = ['time_start', 'time_end', 'date_start', 'date_end', 'title', 'description','image']
 
 
 class EditEventForm(forms.ModelForm):
