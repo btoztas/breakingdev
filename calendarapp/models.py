@@ -3,7 +3,7 @@ from __future__ import unicode_literals
 
 from django.db import models
 from django.contrib.auth.models import User
-
+from schedule.models import Event
 # Create your models here.
 from schedule.models import Calendar
 
@@ -15,13 +15,8 @@ class StudentGroup(User):
     image = models.ImageField(upload_to='', default = 'none.png')
 
 
-class Event(models.Model):
-    name = models.CharField(max_length=30)
-    start = models.DateTimeField()
-    end = models.DateTimeField()
-    description = models.CharField(max_length=500)
-    place = models.CharField(max_length=30, default="Undefined")
-    owner = models.ForeignKey(StudentGroup, on_delete=models.CASCADE, default=None)
+class Event(Event):
+    image = models.ImageField(upload_to='', default='none.png')
 
 
 class Degree(models.Model):

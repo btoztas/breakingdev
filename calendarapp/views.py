@@ -11,9 +11,9 @@ from django.contrib import messages
 from django.utils.decorators import method_decorator
 from django.views.generic.base import TemplateView, View
 from django.http import HttpResponse
-from schedule.models import Calendar, Event
+from schedule.models import Calendar
 
-from calendarapp.models import StudentGroup
+from calendarapp.models import StudentGroup, Event
 from .forms import RegisterUserForm, RegisterEventForm, EditEventForm, EditProfileForm
 from django.contrib.auth.decorators import login_required
 
@@ -107,10 +107,12 @@ class EventView(TemplateView):
 
         title = event.title
         description = event.description
+        image_url = event.image.url
 
         return render(request, self.template_name, {
             'title': title,
             'description': description,
+            'image': image_url
         })
 
 
@@ -129,7 +131,7 @@ class CreateEventView(View):
 
     def post(self, request):
 
-        form = self.form_class(request.POST)
+        form = self.form_class(request.POST,request.FILES)
 
         if form.is_valid():
             start_date = form.cleaned_data['date_start']
@@ -147,7 +149,7 @@ class CreateEventView(View):
             new_event.start = start
             new_event.end = end
             new_event.calendar = calendar
-
+            new_event.image = form.cleaned_data['image']
             new_event.save()
 
             if new_event is not None:
@@ -209,6 +211,7 @@ class EditEventView(View):
             event.end = end
             event.title = title
             event.description = description
+            event.image = form.cleaned_data['image']
             event.save()
             return redirect('/calendarapp/dashboard')
 
