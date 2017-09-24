@@ -83,10 +83,12 @@ class ProfilePageView(TemplateView):
         student_group = StudentGroup.objects.filter(pk=profile_id).first()
         name = student_group.name
         description = student_group.description
+        events = Event.objects.filter(creator=student_group).all()
 
         return render(request, self.template_name, {
             'name': name,
-            'description': description
+            'description': description,
+            'event_list': events
         })
 
 
