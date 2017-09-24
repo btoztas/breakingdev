@@ -78,6 +78,18 @@ class ForgotPasswordPageView(TemplateView):
 class ProfilePageView(TemplateView):
     template_name = 'calendarapp/profile.html'
 
+    def get(self, request, *args, **kwargs):
+        profile_id = kwargs['profile_id']
+        student_group = StudentGroup.objects.filter(pk=profile_id).first()
+        name = student_group.name
+        description = student_group.description
+
+        return render(request, self.template_name, {
+            'name': name,
+            'description': description
+        })
+
+
 
 class EventView(TemplateView):
     template_name = 'calendarapp/event.html'
@@ -183,6 +195,7 @@ class EditEventView(View):
             return HttpResponse('success')
 
 
+@method_decorator(login_required(login_url='/calendarapp/login/'), name='dispatch')
 class DeleteEventView(View):
 
     def get(self, request):
@@ -191,6 +204,7 @@ class DeleteEventView(View):
         return HttpResponse('success')
 
 
+@method_decorator(login_required(login_url='/calendarapp/login/'), name='dispatch')
 class EditProfileView(View):
     template_name = 'calendarapp/edit_profile.html'
     form_class = EditProfileForm

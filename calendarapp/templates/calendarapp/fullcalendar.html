@@ -583,9 +583,8 @@
                     $('#calendar').fullCalendar({
                         eventClick: function (event, element) {
 
-                            event.title = "CLICKED!";
 
-                            $('#calendar').fullCalendar('updateEvent', event);
+                            window.location.href = "http://stackoverflow.com";
 
                         },
                         eventLimit: true, // for all non-agenda views

@@ -29,22 +29,32 @@
     <!-- Navigation -->
     <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
       <div class="container">
-        <a class="navbar-brand js-scroll-trigger" href="#page-top">Hackerschool</a>
+        <a class="navbar-brand js-scroll-trigger" href="/calendarapp">ISTudentCalendar</a>
         <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
           Menu
           <i class="fa fa-bars"></i>
         </button>
         <div class="collapse navbar-collapse" id="navbarResponsive">
           <ul class="navbar-nav ml-auto">
+            {% if user.is_authenticated %}
             <li class="nav-item">
-              <a class="nav-link js-scroll-trigger" href="#portfolio">Eventos</a>
+              <a class="nav-link js-scroll-trigger" href="/calendarapp/profile/{{ user.pk }}">Profile</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link js-scroll-trigger" href="#about">Sobre</a>
+              <a class="nav-link js-scroll-trigger" href="/calendarapp/dashboard">Dashboard</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link js-scroll-trigger" href="#contact">Contacto</a>
+              <a class="nav-link js-scroll-trigger" href="/calendarapp/logout">Logout</a>
             </li>
+            {% else %}
+            <li class="nav-item">
+                <a class="nav-link js-scroll-trigger" href="/calendarapp/login">Login</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link js-scroll-trigger" href="/calendarapp/register">Register</a>
+            </li>
+
+            {% endif %}
           </ul>
         </div>
       </div>
@@ -55,9 +65,8 @@
       <div class="container">
         <img class="img-fluid" src="{%static 'profile/img/logoHS.png'%}" alt="">
         <div class="intro-text">
-          <span class="name">Hackerschool</span>
+          <span class="name">{{ name }}</span>
           <hr class="star-light">
-          <span class="skills">break.learn.build</span>
         </div>
       </div>
     </header>
@@ -139,18 +148,7 @@
         <hr class="star-light">
         <div class="row">
           <div class="col-lg-4 ml-auto">
-            <p>O objectivo prioritário da HackerSchool é criar um espaço de colaboração que estimule alunos apaixonados por tecnologia a realizar os seus projectos e, dessa forma, ajudá-los a encontrar a sua vocação e atingir o seu potencial máximo, tanto como indivíduos como empreendedores, através de uma interacção hands-on com tecnologia, engenharia e ciência.
-              </p>
-          </div>
-          <div class="col-lg-4 mr-auto">
-            <p>Pretende-se ter uma geração de alunos com ideias novas e um modo diferente de pensar sobre o mundo, que criem produtos e soluções inovadoras.
-              Mais, a HackerSchool pretende afirmar-se como um centro de convergência multidisciplinar onde alunos e professores de cursos diferentes se juntam para experimentar e partilhar ideias diferentes mas complementares.</p>
-          </div>
-          <div class="col-lg-8 mx-auto text-center">
-            <a href="#" class="btn btn-lg btn-outline">
-              <i class="fa fa-download"></i>
-              Download Theme
-            </a>
+            <p>{{ description }}</p>
           </div>
         </div>
       </div>
