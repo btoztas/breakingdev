@@ -150,6 +150,8 @@ class CreateEventView(View):
             new_event.end = end
             new_event.calendar = calendar
             new_event.image = form.cleaned_data['image']
+            new_event.place = form.cleaned_data['place']
+            new_event.place = form.cleaned_data['type']
             new_event.save()
 
             if new_event is not None:
