@@ -90,9 +90,22 @@ class ProfilePageView(TemplateView):
         })
 
 
-
 class EventView(TemplateView):
     template_name = 'calendarapp/event.html'
+
+    def get(self, request, *args, **kwargs):
+        event_id = kwargs['event_id']
+        event = Event.objects.filter(pk=event_id).first()
+        title = event.title
+        description = event.description
+
+        return render(request, self.template_name, {
+            'title': title,
+            'description': description,
+        })
+
+
+
 
 
 @method_decorator(login_required(login_url='/calendarapp/login/'), name='dispatch')

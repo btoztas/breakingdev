@@ -65,7 +65,7 @@
       <div class="container">
 
         <div class="intro-text">
-          <span class="name">Hackerschool</span>
+          <span class="name">{{ title }}</span>
           <hr class="star-light">
         </div>
           <img class="img-fluid" src="{%static 'event/img/logoHS.png'%}" alt="">
@@ -76,8 +76,9 @@
     <section class="success" id="about">
       <div class="container">
         <div class="modal-body">
-          <p>Use this area of the page to describe your project. The icon above is part of a free icon set by
-            <a href="https://sellfy.com/p/8Q9P/jV3VZ/">Flat Icons</a>. On their website, you can download their free set with 16 icons, or you can purchase the entire set with 146 icons for only $12!</p>
+          <p>
+              {{ description }}
+          </p>
           <ul class="list-inline item-details">
             <li>Tipo:
               <strong>
