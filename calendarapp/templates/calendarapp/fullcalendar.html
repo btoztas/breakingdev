@@ -582,9 +582,11 @@
                     // page is now ready, initialize the calendar...
                     $('#calendar').fullCalendar({
                         eventClick: function (calEvent, jsEvent, view) {
+                            if(calEvent.calendar_slug=='NUCLEOS'){
+                                window.location.href = "/calendarapp/event/" + calEvent.id;
+                            }
+                            
 
-
-                            //window.location.href = "/calendarapp/event/" + calEvent.id;
 
                         },
                         eventLimit: true, // for all non-agenda views
