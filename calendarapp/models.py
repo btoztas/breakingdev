@@ -17,7 +17,8 @@ class StudentGroup(User):
 
 class Event(Event):
     image = models.ImageField(upload_to='', default='none.png')
-
+    type = models.CharField(max_length=30)
+    place = models.CharField(max_length=30)
 
 class Degree(models.Model):
     acro = models.CharField(max_length=30)
