@@ -41,4 +41,4 @@ class EditProfileForm(forms.ModelForm):
 
     class Meta:
         model = StudentGroup
-        fields = ['name', 'email', 'description','photo']
+        fields = ['name', 'email', 'description','image']
