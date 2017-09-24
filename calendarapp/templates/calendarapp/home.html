@@ -66,6 +66,12 @@
                 // page is now ready, initialize the calendar...
                 $('#calendar').fullCalendar({
                     // put your options and callbacks here
+                  eventClick: function (event, element) {
+
+
+                            window.location.href = "/calendarapp/event/" + event.id;
+
+                  },
                   events: '/schedule/api/occurrences?'
                 })
 
