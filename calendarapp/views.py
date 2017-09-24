@@ -108,11 +108,18 @@ class EventView(TemplateView):
         title = event.title
         description = event.description
         image_url = event.image.url
-
+        type = event.type
+        place = event.place
+        date = event.start.date()
+        time = event.start.time()
         return render(request, self.template_name, {
             'title': title,
             'description': description,
-            'image': image_url
+            'image': image_url,
+            'type' : type,
+            'place': place,
+            'date': date,
+            'time':time
         })
 
 

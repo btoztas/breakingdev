@@ -21,7 +21,7 @@ class RegisterEventForm(forms.ModelForm):
 
     class Meta:
         model = Event
-        fields = ['time_start', 'time_end', 'date_start', 'date_end', 'title', 'description','image']
+        fields = ['time_start', 'time_end', 'date_start', 'date_end', 'title', 'description','image','place','type']
 
 
 class EditEventForm(forms.ModelForm):
