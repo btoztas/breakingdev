@@ -12,7 +12,7 @@ class StudentGroup(User):
     name = models.CharField(max_length=30)
     acro = models.CharField(max_length=10)
     description = models.CharField(max_length=500)
-    photo = models.CharField(max_length=500)
+    photo = models.ImageField(upload_to='Student')
 
 
 class Event(models.Model):
