@@ -43,7 +43,7 @@
           <ul class="navbar-nav ml-auto">
             {% if user.is_authenticated %}
             <li class="nav-item">
-              <a class="nav-link js-scroll-trigger" href="/calendarapp/profile/{{ user.pk }}">Profile</a>
+              <a class="nav-link js-scroll-trigger" href="/calendarapp/profile/{{ user.pk }}">Perfil</a>
             </li>
             <li class="nav-item">
               <a class="nav-link js-scroll-trigger" href="/calendarapp/dashboard">Dashboard</a>
@@ -56,7 +56,7 @@
                 <a class="nav-link js-scroll-trigger" href="/calendarapp/login">Login</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link js-scroll-trigger" href="/calendarapp/register">Register</a>
+                <a class="nav-link js-scroll-trigger" href="/calendarapp/register">Sign Up</a>
             </li>
 
             {% endif %}
@@ -105,36 +105,26 @@
         <div class="container">
           <div class="row">
             <div class="footer-col col-md-4">
-              <h3>Location</h3>
-              <p>3481 Melrose Place
-                <br>Beverly Hills, CA 90210</p>
+              <h3>Localização</h3>
+              <p>Taguspark, Edifício Núcleo Central 100
+                <br>2740-122 Oeiras</p>
             </div>
             <div class="footer-col col-md-4">
-              <h3>Around the Web</h3>
+              <h3>Outras ligações</h3>
               <ul class="list-inline">
                 <li class="list-inline-item">
-                  <a class="btn-social btn-outline" href="#">
+                  <a class="btn-social btn-outline" href="https://www.facebook.com/hackerschoolist">
                     <i class="fa fa-fw fa-facebook"></i>
                   </a>
                 </li>
                 <li class="list-inline-item">
-                  <a class="btn-social btn-outline" href="#">
-                    <i class="fa fa-fw fa-google-plus"></i>
-                  </a>
-                </li>
-                <li class="list-inline-item">
-                  <a class="btn-social btn-outline" href="#">
+                  <a class="btn-social btn-outline" href="https://twitter.com/hackerschoolist">
                     <i class="fa fa-fw fa-twitter"></i>
                   </a>
                 </li>
                 <li class="list-inline-item">
-                  <a class="btn-social btn-outline" href="#">
+                  <a class="btn-social btn-outline" href="https://www.linkedin.com/company/5366385/">
                     <i class="fa fa-fw fa-linkedin"></i>
-                  </a>
-                </li>
-                <li class="list-inline-item">
-                  <a class="btn-social btn-outline" href="#">
-                    <i class="fa fa-fw fa-dribbble"></i>
                   </a>
                 </li>
               </ul>

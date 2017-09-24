@@ -98,7 +98,8 @@ class EventView(TemplateView):
     def get(self, request, *args, **kwargs):
         event_id = kwargs['event_id']
 
-        event = Event.objects.filter(id=event_id).first()
+        event = Event.objects.filter(pk=event_id).first()
+
         title = event.title
         description = event.description
 
@@ -146,7 +147,7 @@ class CreateEventView(View):
             new_event.save()
 
             if new_event is not None:
-                return redirect('/calendarapp/dashboard')
+                return redirect('/calendarapp/event/'+str(new_event.pk))
 
 
 @method_decorator(login_required(login_url='/calendarapp/login/'), name='dispatch')
