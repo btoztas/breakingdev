@@ -78,10 +78,17 @@ class ForgotPasswordPageView(TemplateView):
 class ProfilePageView(TemplateView):
     template_name = 'calendarapp/profile.html'
 
-    def get_context_data(self, **kwargs):
+    def get(self, request, *args, **kwargs):
         profile_id = kwargs['profile_id']
+        student_group = StudentGroup.objects.filter(pk=profile_id).first()
+        name = student_group.name
+        description = student_group.description
 
-        return HttpResponse(profile_id)
+        return render(request, self.template_name, {
+            'name': name,
+            'description': description
+        })
+
 
 
 class EventView(TemplateView):

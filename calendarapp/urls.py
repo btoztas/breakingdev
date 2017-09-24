@@ -1,5 +1,5 @@
 from django.conf.urls import url
-from .views import HomePageView, RegisterPageView, ForgotPasswordPageView, ProfilePageView, HomePage2View, \
+from .views import HomePageView, RegisterPageView, ForgotPasswordPageView, ProfilePageView, \
     CreateEventView, EventView, DashboardView, ListEventsView, EditEventView, DeleteEventView, EditProfileView
 
 from django.contrib.auth import views as auth_views
