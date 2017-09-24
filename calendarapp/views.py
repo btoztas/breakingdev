@@ -119,10 +119,15 @@ class EventView(TemplateView):
 
         title = event.title
         description = event.description
+        start = event.start
+        end = event.end
 
         return render(request, self.template_name, {
             'title': title,
             'description': description,
+            'start':start,
+            'end':end,
+
         })
 
 
