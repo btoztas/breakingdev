@@ -63,7 +63,7 @@ class RegisterPageView(View):
                 if user.is_active:
                     login(request, user)
                     # TODO: REDIRECT TO GOOD PAGE
-                    return HttpResponse('success')
+                    return redirect('/calendarapp/dashboard')
 
             #TODO: REDIRECT TO ERROR PAGE
 
@@ -77,6 +77,18 @@ class ForgotPasswordPageView(TemplateView):
 
 class ProfilePageView(TemplateView):
     template_name = 'calendarapp/profile.html'
+
+    def get(self, request, *args, **kwargs):
+        profile_id = kwargs['profile_id']
+        student_group = StudentGroup.objects.filter(pk=profile_id).first()
+        name = student_group.name
+        description = student_group.description
+
+        return render(request, self.template_name, {
+            'name': name,
+            'description': description
+        })
+
 
 
 class EventView(TemplateView):
@@ -121,7 +133,7 @@ class CreateEventView(View):
             new_event.save()
 
             if new_event is not None:
-                return HttpResponse('success')
+                return redirect('/calendarapp/dashboard')
 
 
 @method_decorator(login_required(login_url='/calendarapp/login/'), name='dispatch')
@@ -180,17 +192,19 @@ class EditEventView(View):
             event.title = title
             event.description = description
             event.save()
-            return HttpResponse('success')
+            return redirect('/calendarapp/dashboard')
 
 
+@method_decorator(login_required(login_url='/calendarapp/login/'), name='dispatch')
 class DeleteEventView(View):
 
     def get(self, request):
         event_id = request.GET.get('event')
         Event.objects.filter(pk=event_id).first().delete()
-        return HttpResponse('success')
+        return redirect('/calendarapp/dashboard')
 
 
+@method_decorator(login_required(login_url='/calendarapp/login/'), name='dispatch')
 class EditProfileView(View):
     template_name = 'calendarapp/edit_profile.html'
     form_class = EditProfileForm

@@ -1,5 +1,5 @@
 from django.conf.urls import url
-from .views import HomePageView, RegisterPageView, ForgotPasswordPageView, ProfilePageView, HomePage2View, \
+from .views import HomePageView, RegisterPageView, ForgotPasswordPageView, ProfilePageView, \
     CreateEventView, EventView, DashboardView, ListEventsView, EditEventView, DeleteEventView, EditProfileView
 
 from django.contrib.auth import views as auth_views
@@ -9,8 +9,8 @@ urlpatterns = [
 
     # HOME
     url(r'^$',  HomePageView.as_view(), name='home'),
-    url(r'^profile/$', ProfilePageView.as_view(), name='profile'),
-    url(r'^event/$',  EventView.as_view(), name='event'),
+    url(r'^profile/(?P<profile_id>\d+)/$', ProfilePageView.as_view(), name='profile'),
+    url(r'^event/(?P<event_id>\d+)/$',  EventView.as_view(), name='event'),
 
 
     # DASHBOARD
