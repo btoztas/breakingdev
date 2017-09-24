@@ -70,57 +70,21 @@
       </div>
     </header>
 
+
+
     <!-- Lista de Eventos Section -->
     <section id="contact">
 
-    <div class="container">
-        <h2 class="text-center">Eventos</h2>
-        <hr class="star-primary">
-      <!-- Example DataTables Card-->
-      <div class="card mb-3">
-        <div class="card-header">
-          <i class="fa fa-table"></i> Lista de Eventos</div>
-        <div class="card-body">
-          <div class="table-responsive">
-            <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
-              <thead>
-                <tr>
-                  <th>Title</th>
-                  <th>Start</th>
-                  <th>End</th>
-                  <th>See More</th>
-                </tr>
-              </thead>
-              <tbody>
-              {% for event in event_list %}
-                  <tr>
-                    <td>{{ event.title }}</td>
-                    <td>{{ event.start }}</td>
-                    <td>{{ event.end }}</td>
-                    <td><a href="/calendarapp/event/{{ event.pk }}">Saber mais</a> </td>
-                  </tr>
-              {% endfor %}
-              </tbody>
-            </table>
-          </div>
-        </div>
-        <div class="card-footer small text-muted">Updated yesterday at 11:59 PM</div>
-      </div>
-    </div>
+    {% for group in student_groups %}
+        <h2>{{ group.name }}</h2>
+        <img class="img-fluid img-centered" src="{{ group.image.url }}" alt="">
+    {% endfor %}
 
     </section>
 
     <!-- About Section -->
     <section class="success" id="about">
-      <div class="container">
-        <h2 class="text-center">Sobre</h2>
-        <hr class="star-light">
 
-
-            <p>{{ description }}</p>
-
-
-      </div>
     </section>
 
 
