@@ -97,6 +97,18 @@ class ProfilePageView(TemplateView):
         })
 
 
+class GroupsList(TemplateView):
+    template_name = 'calendarapp/groups-list.html'
+
+    def get(self, request, *args, **kwargs):
+
+        student_groups = StudentGroup.objects.all()
+
+        return render(request, self.template_name, {
+            'student_groups': student_groups
+        })
+
+
 class EventView(TemplateView):
     template_name = 'calendarapp/event.html'
 

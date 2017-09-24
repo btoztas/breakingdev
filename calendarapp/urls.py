@@ -1,6 +1,7 @@
 from django.conf.urls import url
 from .views import HomePageView, RegisterPageView, ForgotPasswordPageView, ProfilePageView, \
-    CreateEventView, EventView, DashboardView, ListEventsView, EditEventView, DeleteEventView, EditProfileView
+    CreateEventView, EventView, DashboardView, ListEventsView, EditEventView, DeleteEventView, EditProfileView, \
+    GroupsList
 
 from django.contrib.auth import views as auth_views
 from django.views.generic.base import TemplateView
@@ -11,6 +12,7 @@ urlpatterns = [
     url(r'^$',  HomePageView.as_view(), name='home'),
     url(r'^profile/(?P<profile_id>\d+)/$', ProfilePageView.as_view(), name='profile'),
     url(r'^event/(?P<event_id>\d+)/$',  EventView.as_view(), name='event'),
+    url(r'^list-groups/$',  GroupsList.as_view(), name='groups_list'),
 
 
     # DASHBOARD

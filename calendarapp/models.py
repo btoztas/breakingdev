@@ -11,7 +11,7 @@ from schedule.models import Calendar
 class StudentGroup(User):
     name = models.CharField(max_length=30)
     acro = models.CharField(max_length=10)
-    description = models.CharField(max_length=500)
+    description = models.CharField(max_length=500, default="Por inserir")
     image = models.ImageField(upload_to='', default='none.png')
 
 
