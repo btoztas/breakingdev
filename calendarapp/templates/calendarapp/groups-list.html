@@ -38,7 +38,7 @@
           <ul class="navbar-nav ml-auto">
             {% if user.is_authenticated %}
             <li class="nav-item">
-              <a class="nav-link js-scroll-trigger" href="/calendarapp/profile/{{ user.pk }}">Profile</a>
+              <a class="nav-link js-scroll-trigger" href="/calendarapp/profile/{{ user.pk }}">Perfil</a>
             </li>
             <li class="nav-item">
               <a class="nav-link js-scroll-trigger" href="/calendarapp/dashboard">Dashboard</a>
@@ -46,12 +46,19 @@
             <li class="nav-item">
               <a class="nav-link js-scroll-trigger" href="/calendarapp/logout">Logout</a>
             </li>
+            <li class="nav-item">
+              <a class="nav-link js-scroll-trigger" href="/calendarapp/list-groups/">Núcleos Registados</a>
+            </li>
             {% else %}
             <li class="nav-item">
                 <a class="nav-link js-scroll-trigger" href="/calendarapp/login">Login</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link js-scroll-trigger" href="/calendarapp/register">Register</a>
+            </li>
+
+            <li class="nav-item">
+              <a class="nav-link js-scroll-trigger" href="/calendarapp/list-groups/">Núcleos Registados</a>
             </li>
 
             {% endif %}
@@ -75,67 +82,32 @@
     <!-- Lista de Eventos Section -->
     <section id="contact">
 
-    {% for group in student_groups %}
-        <h2>{{ group.name }}</h2>
-        <img class="img-fluid img-centered" src="{{ group.image.url }}" alt="">
-    {% endfor %}
-
-    </section>
-
-<link href="{%static 'calendarapp/css/listagroupos.css' %}" rel="stylesheet">
-<link href='http://fonts.googleapis.com/css?family=Fredoka+One' rel='stylesheet' type='text/css'>
-<!-- Start your code here -->
-<div class="panel panel-default event">
-  <div class="panel-body">
-    <div class="rsvp col-xs-2 col-sm-2">
-      <i>18</i>
-      <i>nov</i>
-      <div class="hidden-xs">
-        <span class="fa fa-thumbs-up fa-2x"></span>
-        <span class="fa fa-thumbs-down fa-2x"></span>
-      </div>
-    </div>
-    <div class="info col-xs-8 col-sm-7">
-      Event Title
-      <div class="visible-xs">Lorem ipsum dolor sit amet, consectetur adipiscing elitero..</div>
-      <div class="hidden-xs">
-          <ul class="nav nav-tabs" role="tablist">
-            <li role="presentation" class="active"><a href="#location" aria-controls="location" role="tab" data-toggle="tab">Location</a></li>
-            <li role="presentation"><a href="#profile" aria-controls="profile" role="tab" data-toggle="tab">Profile</a></li>
-          </ul>
-          <!-- Tab panes -->
-          <div class="tab-content">
-            <div role="tabpanel" class="tab-pane active" id="location">Location</div>
-            <div role="tabpanel" class="tab-pane" id="profile">
-    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla mattis feugiat sem, eu sagittis libero. Duis non odio ut nibh volutpat tempus eget interdum elit.
-            </div>
+    <div class="container-fluid">
+      <!-- Example DataTables Card-->
+      <div class="card mb-3">
+        <div class="card-header">
+          <i class="fa fa-table"></i> Lista de Núcleos Registados</div>
+        <div class="card-body">
+          <div class="table-responsive">
+            <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+              <tbody>
+              {% for group in student_groups %}
+                  <tr>
+                    <td>{{ group.acro }}</td>
+                    <td>{{ group.name }}</td>
+                    <td><a href="/calendarapp/profile/{{ group.pk }}">Saber mais</a> </td>
+                    </tr>
+              {% endfor %}
+              </tbody>
+            </table>
           </div>
         </div>
+        <div class="card-footer small text-muted">Updated yesterday at 11:59 PM</div>
+      </div>
     </div>
-    <div class="author col-xs-2 col-sm-3">
-        <div class="profile-image">
-            <img src="http://api.randomuser.me/portraits/med/men/71.jpg"/>
-        </div>
-        <div class="profile hidden-xs">
-            <strong>Robert White</strong>
-            <article>Event leader and founder of this group</article>
-            <div class="links hidden-sm">
-              <i class="fa fa-github-square fa-2x col-xs-3"></i>
-              <i class="fa fa-google-plus-square fa-2x col-xs-3"></i>
-              <i class="fa fa-facebook-square fa-2x col-xs-3"></i>
-              <i class="fa fa-linkedin-square  fa-2x col-xs-3"></i>
-            </div>
-        </div>
-
-    </div>
-  </div>
-</div>
-
-
-    <!-- About Section -->
-    <section class="success" id="about">
 
     </section>
+
 
 
 

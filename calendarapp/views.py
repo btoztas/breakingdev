@@ -87,7 +87,7 @@ class ProfilePageView(TemplateView):
 
         name = student_group.name
         description = student_group.description
-        events = Event.objects.filter(creator=student_group).all()
+        events = Event.objects.filter(creator=student_group).all().order_by('start')
         image_url = student_group.image.url
         return render(request, self.template_name, {
             'name': name,
@@ -194,7 +194,7 @@ class ListEventsView(View):
     def get(self, request):
 
         username = request.user
-        events = Event.objects.filter(creator=username).all()
+        events = Event.objects.filter(creator=username).all().order_by('start')
 
         return render(request, self.template_name, {'event_list': events})
 
