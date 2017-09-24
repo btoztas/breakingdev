@@ -117,11 +117,9 @@ class EventView(TemplateView):
         return render(request, self.template_name, {
             'title': title,
             'description': description,
-            'image': image_url
-
+            'image': image_url,
             'start':start,
             'end':end,
-1
         })
 
 
