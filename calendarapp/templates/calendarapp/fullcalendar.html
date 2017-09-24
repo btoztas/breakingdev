@@ -581,10 +581,11 @@
 
                     // page is now ready, initialize the calendar...
                     $('#calendar').fullCalendar({
-                        eventClick: function (event, element) {
+                        eventClick: function (calEvent, jsEvent, view) {
 
 
-                            window.location.href = "http://stackoverflow.com";
+
+                            window.location.href = "/calendarapp/event/" + calEvent.id;
 
                         },
                         eventLimit: true, // for all non-agenda views
