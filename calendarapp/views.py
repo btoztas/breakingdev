@@ -298,7 +298,6 @@ class EditProfileView(View):
             pk = user.pk
             student_group = StudentGroup.objects.filter(pk=pk).first()
 
-            return HttpResponse(form.cleaned_data['image'])
             student_group.name = form.cleaned_data['name']
             student_group.email = form.cleaned_data['email']
             student_group.description = form.cleaned_data['description']
