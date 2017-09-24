@@ -224,7 +224,7 @@ class EditProfileView(View):
         })
 
     def post(self, request):
-        form = self.form_class(request.POST)
+        form = self.form_class(request.POST,request.FILES)
 
         if form.is_valid():
             user = request.user
@@ -234,6 +234,8 @@ class EditProfileView(View):
             student_group.name = form.cleaned_data['name']
             student_group.email = form.cleaned_data['email']
             student_group.description = form.cleaned_data['description']
+            student_group.image = form.cleaned_data['image']
+
             student_group.save()
 
             return HttpResponse('success')
