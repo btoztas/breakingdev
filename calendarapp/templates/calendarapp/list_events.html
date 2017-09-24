@@ -47,6 +47,7 @@
                   <th>Título</th>
                   <th>Início</th>
                   <th>Fim</th>
+                  <th>Ver</th>
                   <th>Editar</th>
                   <th>Eliminar</th>
                 </tr>
@@ -57,6 +58,7 @@
                     <td>{{ event.title }}</td>
                     <td>{{ event.start }}</td>
                     <td>{{ event.end }}</td>
+                    <td><a href="/calendarapp/event/{{ event.pk }}">Ver</a> </td>
                     <td><a href="/calendarapp/dashboard/edit-event?event={{ event.pk }}">Editar</a> </td>
                     <td><a href="/calendarapp/dashboard/delete-event?event={{ event.pk }}">Eliminar</a> </td>
                   </tr>
