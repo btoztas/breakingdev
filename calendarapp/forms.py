@@ -2,7 +2,6 @@ from django import forms
 from calendarapp.models import StudentGroup, Event
 
 
-
 class RegisterUserForm(forms.ModelForm):
 
     password = forms.CharField(widget=forms.PasswordInput)
@@ -21,7 +20,7 @@ class RegisterEventForm(forms.ModelForm):
 
     class Meta:
         model = Event
-        fields = ['time_start', 'time_end', 'date_start', 'date_end', 'title', 'description','image','place','type']
+        fields = ['time_start', 'time_end', 'date_start', 'date_end', 'title', 'description', 'image', 'place', 'type']
 
 
 class EditEventForm(forms.ModelForm):
@@ -34,7 +33,7 @@ class EditEventForm(forms.ModelForm):
 
     class Meta:
         model = Event
-        fields = ['time_start', 'time_end', 'date_start', 'date_end', 'title', 'description', 'event_id']
+        fields = ['time_start', 'time_end', 'date_start', 'date_end', 'title', 'description', 'image', 'place', 'type']
 
 
 class EditProfileForm(forms.ModelForm):
