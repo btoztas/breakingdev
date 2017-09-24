@@ -63,7 +63,7 @@ class RegisterPageView(View):
                 if user.is_active:
                     login(request, user)
                     # TODO: REDIRECT TO GOOD PAGE
-                    return redirect('/calendarapp/dashboard')
+                    return redirect("/calendarapp/profile/"+str(calendar.id))
 
             #TODO: REDIRECT TO ERROR PAGE
 
@@ -236,4 +236,4 @@ class EditProfileView(View):
             student_group.description = form.cleaned_data['description']
             student_group.save()
 
-            return HttpResponse('success')
+            return redirect('/calendarapp/dashboard')
