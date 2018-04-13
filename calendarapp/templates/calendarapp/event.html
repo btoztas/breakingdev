@@ -1,0 +1,141 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Freelancer - Start Bootstrap Theme</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="{%static 'event/vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
+
+    <!-- Custom fonts for this template -->
+    <link href="{%static 'event/vendor/font-awesome/css/font-awesome.min.css'%}" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic" rel="stylesheet" type="text/css">
+
+    <!-- Custom styles for this template -->
+    <link href="{% static 'event/css/freelancer.min.css'%}" rel="stylesheet">
+
+  </head>
+
+  <body id="page-top">
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
+      <div class="container">
+        <a class="navbar-brand js-scroll-trigger" href="/calendarapp">ISTudentCalendar</a>
+        <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+          Menu
+          <i class="fa fa-bars"></i>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+          <ul class="navbar-nav ml-auto">
+            {% if user.is_authenticated %}
+            <li class="nav-item">
+              <a class="nav-link js-scroll-trigger" href="/calendarapp/profile/{{ user.pk }}">Perfil</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link js-scroll-trigger" href="/calendarapp/dashboard">Dashboard</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link js-scroll-trigger" href="/calendarapp/logout">Logout</a>
+            </li>
+
+            <li class="nav-item">
+              <a class="nav-link js-scroll-trigger" href="/calendarapp/list-groups/">Núcleos Registados</a>
+            </li>
+            {% else %}
+            <li class="nav-item">
+                <a class="nav-link js-scroll-trigger" href="/calendarapp/login">Login</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link js-scroll-trigger" href="/calendarapp/register">Register</a>
+            </li>
+
+            <li class="nav-item">
+              <a class="nav-link js-scroll-trigger" href="/calendarapp/list-groups/">Núcleos Registados</a>
+            </li>
+
+            {% endif %}
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Header -->
+    <header class="masthead">
+      <div class="container">
+
+        <div class="intro-text">
+          <span class="name">{{ title }}</span>
+          <hr class="star-light">
+        </div>
+          <img class="img-fluid" src="{{ image }}" alt="">
+      </div>
+    </header>
+
+    <!-- About Section -->
+    <section class="success" id="about">
+      <div class="container">
+        <div class="modal-body">
+          <p>
+              {{ description }}
+          </p>
+          <ul class="list-inline item-details">
+            <li>Tipo:
+              <strong>
+                {{ type }}
+              </strong>
+            </li>
+            <li>Data:
+              <strong>
+                 {{ date }}
+              </strong>
+            </li>
+            <li>Hora:
+              <strong>
+                {{ time }}
+
+              </strong>
+            </li>
+            <li>Local:
+              <strong>
+                {{ place }}
+              </strong>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- Scroll to Top Button (Only visible on small and extra-small screen sizes) -->
+    <div class="scroll-top d-lg-none">
+      <a class="btn btn-primary js-scroll-trigger" href="#page-top">
+        <i class="fa fa-chevron-up"></i>
+      </a>
+    </div>
+
+    <!-- Bootstrap core JavaScript -->
+    <script src="{%static 'event/vendor/jquery/jquery.min.js'%}"></script>
+    <script src="{%static 'event/vendor/popper/popper.min.js'%}"></script>
+    <script src="{%static 'event/vendor/bootstrap/js/bootstrap.min.js'%}"></script>
+
+    <!-- Plugin JavaScript -->
+    <script src="{%static 'event/vendor/jquery-easing/jquery.easing.min.js'%}"></script>
+
+    <!-- Contact Form JavaScript -->
+    <script src="{%static 'event/js/jqBootstrapValidation.js'%}"></script>
+    <script src="{%static 'event/js/contact_me.js'%}"></script>
+
+    <!-- Custom scripts for this template -->
+    <script src="{%static 'event/js/freelancer.min.js'%}"></script>
+
+  </body>
+
+</html>

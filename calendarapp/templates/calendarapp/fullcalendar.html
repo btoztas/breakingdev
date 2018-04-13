@@ -1,0 +1,367 @@
+{% extends "calendarapp/blank.html" %}
+
+
+{% load i18n staticfiles %}
+
+{% block head_title %}{% trans "Fullcalendar" %}{% endblock %}
+
+{% block tab_id %}id="home_tab"{% endblock %}
+
+{% block extra_head %}
+    <script type="text/javascript" src="{% static 'schedule.js' %}"></script>
+    <link rel='stylesheet' type='text/css' href="{% static 'fullcalendar/dist/fullcalendar.css' %}"/>
+    <script type='text/javascript' src="{% static 'moment/moment.js' %}"></script>
+    <script type='text/javascript' src="{% static 'fullcalendar/dist/fullcalendar.js' %}"></script>
+    <script>
+        function checkAddress(checkbox) {
+
+
+
+            var start = $('#calendar').fullCalendar('getView').intervalStart.format('YYYY-MM-DD');
+            var end = "2020-01-01"
+            var url = "/schedule/api/occurrences?calendar_slug="+ checkbox.id + "&start=" + start + "&end=" + end;
+
+            $.getJSON(url, function (data) {
+                for (i = 0; i < data.length; i++) {
+                    if (checkbox.checked) {
+                        $('#calendar').fullCalendar('renderEvent', data[i], true);
+
+                    } else {
+                        $('#calendar').fullCalendar('removeEvents', data[i].id);
+                    }
+                }
+
+            });
+
+
+
+        }
+    </script>
+{% endblock %}
+
+{% block body %}
+    <div class="card mb-3">
+        <div class="card-header">
+            <i class="fa fa-area-chart"></i> Filtros
+            <table>
+
+                <tr>
+                    <td>
+                        <div class="e1Div">
+                            <input type="checkbox" name="MEM" id="MEM" onchange="checkAddress(this)"/>
+                            <label for="e1">MEM</label>
+                        </div>
+                    </td>
+                    <td>
+                        <div class="e1Div">
+                            <input type="checkbox" name="MEGI" id="MEGI" onchange="checkAddress(this)"/>
+                            <label for="e1">MEGI</label>
+                        </div>
+                    </td>
+                    <td>
+                        <div class="e1Div">
+                            <input type="checkbox" name="MEE" id="MEE" onchange="checkAddress(this)"/>
+                            <label for="e1">MEE</label>
+                        </div>
+                    </td>
+                    <td>
+                        <div class="e1Div">
+                            <input type="checkbox" name="MERC" id="MERC" onchange="checkAddress(this)"/>
+                            <label for="e1">MERC</label>
+                        </div>
+                    </td>
+                    <td>
+                        <div class="e1Div">
+                            <input type="checkbox" name="MEIC-T" id="MEIC-T" onchange="checkAddress(this)"/>
+                            <label for="e1">MEIC-T</label>
+                        </div>
+                    </td>
+                    <td>
+                        <div class="e1Div">
+                            <input type="checkbox" name="MISE" id="MISE" onchange="checkAddress(this)"/>
+                            <label for="e1">MISE</label>
+                        </div>
+                    </td>
+                    <td>
+                        <div class="e1Div">
+                            <input type="checkbox" name="MEFarm" id="MEFarm" onchange="checkAddress(this)"/>
+                            <label for="e1">MEFarm</label>
+                        </div>
+                    </td>
+                    <td>
+                        <div class="e1Div">
+                            <input type="checkbox" name="MicroBio" id="MicroBio" onchange="checkAddress(this)"/>
+                            <label for="e1">MicroBio</label>
+                        </div>
+                    </td>
+                    <td>
+                        <div class="e1Div">
+                            <input type="checkbox" name="MSIDC" id="MSIDC" onchange="checkAddress(this)"/>
+                            <label for="e1">MSIDC</label>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <div class="e1Div">
+                            <input type="checkbox" name="MTBiom" id="MTBiom" onchange="checkAddress(this)"/>
+                            <label for="e1">MTBiom</label>
+                        </div>
+                    </td>
+                    <td>
+                        <div class="e1Div">
+                            <input type="checkbox" name="MBiotec" id="MBiotec" onchange="checkAddress(this)"/>
+                            <label for="e1">MBiotec</label>
+                        </div>
+                    </td>
+                    <td>
+                        <div class="e1Div">
+                            <input type="checkbox" name="MEGE" id="MEGE" onchange="checkAddress(this)"/>
+                            <label for="e1">MEGE</label>
+                        </div>
+                    </td>
+                    <td>
+                        <div class="e1Div">
+                            <input type="checkbox" name="MPSR" id="MPSR" onchange="checkAddress(this)"/>
+                            <label for="e1">MPSR</label>
+                        </div>
+                    </td>
+                    <td>
+                        <div class="e1Div">
+                            <input type="checkbox" name="MPOT" id="MPOT" onchange="checkAddress(this)"/>
+                            <label for="e1">MPOT</label>
+                        </div>
+                    </td>
+                    <td>
+                        <div class="e1Div">
+                            <input type="checkbox" name="MUOT" id="MUOT" onchange="checkAddress(this)"/>
+                            <label for="e1">MUOT</label>
+                        </div>
+                    </td>
+                    <td>
+                        <div class="e1Div">
+                            <input type="checkbox" name="MEST" id="MEST" onchange="checkAddress(this)"/>
+                            <label for="e1">MEST</label>
+                        </div>
+                    </td>
+                    <td>
+                        <div class="e1Div">
+                            <input type="checkbox" name="MEP" id="MEP" onchange="checkAddress(this)"/>
+                            <label for="e1">MEP</label>
+                        </div>
+                    </td>
+                    <td>
+                        <div class="e1Div">
+                            <input type="checkbox" name="MEIC-A" id="MEIC-A" onchange="checkAddress(this)"/>
+                            <label for="e1">MEIC-A</label>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <div class="e1Div">
+                            <input type="checkbox" name="MMA" id="MMA" onchange="checkAddress(this)"/>
+                            <label for="e1">MMA</label>
+                        </div>
+                    </td>
+                    <td>
+                        <div class="e1Div">
+                            <input type="checkbox" name="MEGM" id="MEGM" onchange="checkAddress(this)"/>
+                            <label for="e1">MEGM</label>
+                        </div>
+                    </td>
+                    <td>
+                        <div class="e1Div">
+                            <input type="checkbox" name="MQ" id="MQ" onchange="checkAddress(this)"/>
+                            <label for="e1">MQ</label>
+                        </div>
+                    </td>
+                    <td>
+                        <div class="e1Div">
+                            <input type="checkbox" name="MBioNano" id="MBioNano" onchange="checkAddress(this)"/>
+                            <label for="e1">MBioNano</label>
+                        </div>
+                    </td>
+                    <td>
+                        <div class="e1Div">
+                            <input type="checkbox" name="LERC" id="LERC" onchange="checkAddress(this)"/>
+                            <label for="e1">LERC</label>
+                        </div>
+                    </td>
+                    <td>
+                        <div class="e1Div">
+                            <input type="checkbox" name="LEE" id="LEE" onchange="checkAddress(this)"/>
+                            <label for="e1">LEE</label>
+                        </div>
+                    </td>
+                    <td>
+                        <div class="e1Div">
+                            <input type="checkbox" name="LEGI" id="LEGI" onchange="checkAddress(this)"/>
+                            <label for="e1">LEGI</label>
+                        </div>
+                    </td>
+                    <td>
+                        <div class="e1Div">
+                            <input type="checkbox" name="LEIC-T" id="LEIC-T" onchange="checkAddress(this)"/>
+                            <label for="e1">LEIC-T</label>
+                        </div>
+                    </td>
+                    <td>
+                        <div class="e1Div">
+                            <input type="checkbox" name="LMAC" id="LMAC" onchange="checkAddress(this)"/>
+                            <label for="e1">LMAC</label>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <div class="e1Div">
+                            <input type="checkbox" name="LEAN" id="LEAN" onchange="checkAddress(this)"/>
+                            <label for="e1">LEAN</label>
+                        </div>
+                    </td>
+                    <td>
+                        <div class="e1Div">
+                            <input type="checkbox" name="LEGM" id="LEGM" onchange="checkAddress(this)"/>
+                            <label for="e1">LEGM</label>
+                        </div>
+                    </td>
+                    <td>
+                        <div class="e1Div">
+                            <input type="checkbox" name="LEIC-A" id="LEIC-A" onchange="checkAddress(this)"/>
+                            <label for="e1">LEIC-A</label>
+                        </div>
+                    </td>
+                    <td>
+                        <div class="e1Div">
+                            <input type="checkbox" name="MEBiom" id="MEBiom" onchange="checkAddress(this)"/>
+                            <label for="e1">MEBiom</label>
+                        </div>
+                    </td>
+                    <td>
+                        <div class="e1Div">
+                            <input type="checkbox" name="MEC" id="MEC" onchange="checkAddress(this)"/>
+                            <label for="e1">MEC</label>
+                        </div>
+                    </td>
+                    <td>
+                        <div class="e1Div">
+                            <input type="checkbox" name="MEEC" id="MEEC" onchange="checkAddress(this)"/>
+                            <label for="e1">MEEC</label>
+                        </div>
+                    </td>
+                    <td>
+                        <div class="e1Div">
+                            <input type="checkbox" name="MEBiol" id="MEBiol" onchange="checkAddress(this)"/>
+                            <label for="e1">MEBiol</label>
+                        </div>
+                    </td>
+                    <td>
+                        <div class="e1Div">
+                            <input type="checkbox" name="MEQ" id="MEQ" onchange="checkAddress(this)"/>
+                            <label for="e1">MEQ</label>
+                        </div>
+                    </td>
+                    <td>
+                        <div class="e1Div">
+                            <input type="checkbox" name="MEMec" id="MEMec" onchange="checkAddress(this)"/>
+                            <label for="e1">MEMec</label>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <div class="e1Div">
+                            <input type="checkbox" name="MA" id="MA" onchange="checkAddress(this)"/>
+                            <label for="e1">MA</label>
+                        </div>
+                    </td>
+                    <td>
+                        <div class="e1Div">
+                            <input type="checkbox" name="POSI" id="POSI" onchange="checkAddress(this)"/>
+                            <label for="e1">POSI</label>
+                        </div>
+                    </td>
+                    <td>
+                        <div class="e1Div">
+                            <input type="checkbox" name="MEAN" id="MEAN" onchange="checkAddress(this)"/>
+                            <label for="e1">MEAN</label>
+                        </div>
+                    </td>
+                    <td>
+                        <div class="e1Div">
+                            <input type="checkbox" name="MEAer" id="MEAer" onchange="checkAddress(this)"/>
+                            <label for="e1">MEAer</label>
+                        </div>
+                    </td>
+                    <td>
+                        <div class="e1Div">
+                            <input type="checkbox" name="MEAmbi" id="MEAmbi" onchange="checkAddress(this)"/>
+                            <label for="e1">MEAmbi</label>
+                        </div>
+                    </td>
+                    <td>
+                        <div class="e1Div">
+                            <input type="checkbox" name="MEFT" id="MEFT" onchange="checkAddress(this)"/>
+                            <label for="e1">MEFT</label>
+                        </div>
+                    </td>
+                    <td>
+                        <div class="e1Div">
+                            <input type="checkbox" name="NUCLEOS" id="NUCLEOS" onchange="checkAddress(this)"/>
+                            <label for="e1">NUCLEOS</label>
+                        </div>
+                    </td>
+                </tr>
+
+            </table>
+
+        </div>
+        <div class="card-body">
+            <div id="calendar"></div>
+            <script type='text/javascript'>
+                $(document).ready(function () {
+
+                    // page is now ready, initialize the calendar...
+                    $('#calendar').fullCalendar({
+                        eventClick: function (calEvent, jsEvent, view) {
+                            console.log(calEvent)
+                            if(calEvent.creator!='admin'){
+                                var id = calEvent.id - 1 ;
+                                window.location.href = "/calendarapp/event/" + id;
+                            }
+                            
+
+
+                        },
+                        eventLimit: true, // for all non-agenda views
+                        views: {
+                            agenda: {
+                                eventLimit: 6 // adjust to 6 only for agendaWeek/agendaDay
+                            }
+                        },
+                        customButtons: {
+                            myCustomButton: {
+                                text: 'Change Degrees',
+                                click: function () {
+                                    alert('clicked the custom button!');
+                                }
+                            }
+                        },
+                        header: {
+                            left: 'prev,next',
+                            center: 'title',
+                            right: 'month,agendaWeek'
+                        },
+                        // put your options and callbacks here
+                        events: ('')
+
+                    })
+
+
+                });
+            </script>
+        </div>
+        <!--<div class="card-footer small text-muted">Updated yesterday at 11:59 PM</div>-->
+    </div>
+{% endblock %}
